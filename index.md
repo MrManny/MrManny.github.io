@@ -1,37 +1,160 @@
-## Welcome to GitHub Pages
+## Welcome
 
-You can use the [editor on GitHub](https://github.com/MrManny/MrManny.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+![Me](img/slowly.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Hi everyone!
 
-### Markdown
+### Business
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+```js
+import { MrManny, NonUniversityResearchOrganization } from "@MrManny/world";
 
-```markdown
-Syntax highlighted code block
+describe("MrManny", () => {
+  it("is a Research Engineer", () => {
+    expect(MrManny).toHaveProperty("position", "Research Engineer");
+    expect(MrManny).toHaveProperty("dept", "Digital Safety & Security");
+    expect(MrManny).toHaveProperty("org");
+    expect(MrManny.org).toBeInstanceOf(NonUniversityResearchOrganization);
+  });
 
-# Header 1
-## Header 2
-### Header 3
+  it("lives in Austria", () => {
+    expect(MrManny).toHaveProperty("country", "Austria");
+  });
 
-- Bulleted
-- List
+  it("is not ancient yet", () => {
+    expect(MrManny).toHaveProperty("age");
+    expect(MrManny.age).toBeGreaterThanOrEqual(35);
+    expect(MrManny.age).toBeLessThanOrEqual(40);
+  });
 
-1. Numbered
-2. List
+  it("has experience", () => {
+    expect(
+      MrManny
+        .experience
+        .find((experience) => /^(Software (Architect|Engineer))|Research Engineer$/i.test(experience.position)
+        .reduce((acc, cur) => acc + cur.asYears), 0)
+    ).toBeGreaterThan(15);  // getting closer to 20 now, my goodness!
+  });
 
-**Bold** and _Italic_ and `Code` text
+  it("knows some technology", () => {
+    [
+      "Docker",
+      "ElasticSearch",
+      "ffmpeg",
+      "InfluxDB",
+      "JavaScript",
+      "Jest",
+      "MongoDB",
+      "MySQL/MariaDB",
+      "NestJS",
+      "Node.js",
+      "OpenStack",
+      "Redis",
+      "TypeScript",
+      "Vue.js",
+      // I could go on, but it's getting meh from here on out. Or do you really want to hear about Ruby?
+      // As much as it didn't catch on, I love the poetic syntax of Ruby, and its sugar.
+    ].forEach((technology) => {
+      expect(
+        MrManny
+          .skills
+          .find((skill) => skill.isRecent === true)
+      ).toContain(technology);
+    });
+  });
 
-[Link](url) and ![Image](src)
+  it("has been certified for things once", () => {
+    [
+      "Bespoke OpenStack", // issued 2021
+      "CIS IS Manager", // ISO 27001; issued 11/2016, expired 11/2019
+      "Hacking Mobile Devices", // issued 10/2016
+      // probably one or two more I forgot about
+      // TODO(mw): remember to add them
+    ].forEach((certification) => {
+      expect(MrManny.certifications).toContain(certification);
+    });
+  });
+
+  it("has published stuff", () => {
+    const books = MrManny
+      .publications
+      .find((publication) => publication.isBook === true);
+    expect(books.length).toBeGreaterThanOrEqual(1);
+
+    const researchArticles = MrManny
+      .publications
+      .find((publication) => publication.isResearch === true);
+    expect(researchArticles.length).toBeGreaterThanOrEqual(10);
+
+    // cf. ResearchGate
+  });
+
+  it("isn't a brainless zombie privately", () => {
+    [
+      "3d printing",
+      "ants",
+      "archery",
+      "CAD",
+      "cats",
+      "dogs",
+      "gaming",
+      "GIS",
+      "mapping",
+      "LEGO",
+      "TV series",
+    ].forEach((hobby) => {
+      expect(MrManny.hobbies).toContain(hobby);
+    });
+  });
+
+  it("is for hire?!", () => {
+    // TODO(mw): come up with a test case 😉
+  });
+});
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+For business stuff, you can probably just check out my [LinkedIn] profile, I guess.
 
-### Jekyll Themes
+I know my [GitHub] profile is a bit barren; my main contributions are usually held in private organization
+repositories. I swear, I will try to do *something* useful with my GitHub profile some day!
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MrManny/MrManny.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Private
 
-### Support or Contact
+Privately, I am…
+- a **gamer**: board games, video games, role-playing games, tabletop games; you name it!
+               *Terraforming Mars* is great, by the way. Don't @ me.
+- an **archer**: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit things.
+- a **mapper**: I spend some time to survey for OpenStreetMap sometimes.
+                I am no stranger to geographic information systems.
+- an **additive manufacturing** enthusiast: this is slang for "I know 3d printing, and I know some CAD".
+- a friend of **animals**: I have had cats and ants
+                           ([Messor Barbarus](https://en.wikipedia.org/wiki/Messor_barbarus)) before, currently I have a
+                           Labrador.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Language Skills
+
+- German (native)
+- English (fluent)
+- ~~Latin (extremely rusty)~~
+- ~~Ancient Greek (extremely rusty)~~
+- a plethora of programming and mark-up languages
+
+### Find me
+
+In alphabetical order, you can find me here:
+
+- [GitHub], even if it's puny right now
+- [LinkedIn] (new, and only signed up reluctantly)
+- [OpenStreetMap]
+- [ResearchGate]
+
+I also exist on Reddit in a mainly read-only capacity. `r/netsec` is a great read though!
+I am also no stranger to Twitch.
+Or Steam.
+Or Discord.
+But outside that, it's slim pickings. Sorry!
+
+[GitHub]: https://github.com/MrManny
+[LinkedIn]: https://www.linkedin.com/in/manuel-w-a54850235/
+[OpenStreetMap]: https://www.openstreetmap.org/user/MrManny
+[ResearchGate]: https://www.researchgate.net/profile/Manuel-Warum
