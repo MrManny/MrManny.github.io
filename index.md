@@ -1,8 +1,8 @@
 ![Me](img/slowly.png)
 
-Manny, he/him/they.
+Manny, Mr.
 
-Research Engineer, Austria.
+Señor Software Engineer, Austria.
 
 ## Private
 
@@ -28,8 +28,8 @@ repositories. I swear, I will try to do *something* useful with my GitHub profil
 
 - German (native)
 - English (fluent)
-- ~~Latin (extremely rusty)~~
-- ~~Ancient Greek (extremely rusty)~~
+- ~~Latin (ferrugineo)~~
+- ~~Ancient Greek (πολύ σκουριασμένο)~~
 - a plethora of programming and mark-up languages
 
 ## Find me
