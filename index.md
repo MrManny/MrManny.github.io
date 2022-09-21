@@ -1,4 +1,4 @@
-![Me](img/slowly.png)
+![Me](img/sd.png)
 
 Manny, Mr.
 
@@ -16,6 +16,7 @@ In my off hours, I am…
 - a friend of **animals**: I have had cats and ants
                            ([Messor Barbarus](https://en.wikipedia.org/wiki/Messor_barbarus)) before, currently I have a
                            Labrador.
+- sometimes I go crazy with **[Stable Diffusion](sd.md)**.
 
 ## Business
 
