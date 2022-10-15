@@ -16,18 +16,21 @@ In my off hours, I am…
 - a friend of **animals**: I have had cats and ants
                            ([Messor Barbarus](https://en.wikipedia.org/wiki/Messor_barbarus)) before, currently I have a
                            Labrador.
-- sometimes I go crazy with **Stable Diffusion**.
+                           Also, I am usually covered in various canine fluids and fur.
+- I go crazy with **Stable Diffusion** way too often. Send help!
 
 ## Business
 
 For business stuff, you can probably just check my [LinkedIn] profile, I guess.
+
+Currently doing Product Owner shenanigans at [Dynatrace]. Check them out, we are great!
 
 I know my [GitHub] profile is a bit barren; my main contributions are usually held in private organization
 repositories. I swear, I will try to do *something* useful with my GitHub profile some day!
 
 ## Language Skills
 
-- German (native)
+- German (native, allegedly)
 - English (fluent)
 - ~~Latin (ferrugineo)~~
 - ~~Ancient Greek (πολύ σκουριασμένο)~~
@@ -52,3 +55,4 @@ But outside that, it's slim pickings. Sorry!
 [LinkedIn]: https://www.linkedin.com/in/manuel-w-a54850235/
 [OpenStreetMap]: https://www.openstreetmap.org/user/MrManny
 [ResearchGate]: https://www.researchgate.net/profile/Manuel-Warum
+[Dynatrace]: https://www.dynatrace.com/
