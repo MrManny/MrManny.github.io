@@ -10,7 +10,7 @@ In my off hours, I am…
 - a **gamer**: board games, video games, role-playing games, tabletop games; you name it!
                *Terraforming Mars* is great, by the way. Don't @ me.
 - an **archer**: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit things.
-- a **mapper**: I spend some time to survey for OpenStreetMap sometimes.
+- a **mapper**: I sometimes spend some time to survey for OpenStreetMap.
                 I am no stranger to geographic information systems.
 - an **additive manufacturing** enthusiast: this is slang for "I know 3d printing, and I know some CAD".
 - a friend of **animals**: I have had cats and ants
