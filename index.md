@@ -1,8 +1,8 @@
-![Me](img/sd.png)
+![Me](img/sd.jpg)
 
 Manny, Mr.
 
-Señor Software Engineer, Austria.
+Señor Software Engineer (allegedly), Austria.
 
 ## Private
 
