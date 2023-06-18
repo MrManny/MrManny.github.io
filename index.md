@@ -46,7 +46,7 @@ Sadly, the same cannot be said about spare time.
 In alphabetical order, you can find me here:
 
 - [GitHub] – even if it's puny… right now
-- [LinkedIn] – new, and only signed up reluctantly
+- [LinkedIn]
 - [OpenStreetMap]
 - [ResearchGate] – thinking about closing it eventually as I am no longer active in that community.
 
