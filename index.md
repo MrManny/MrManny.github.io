@@ -23,10 +23,15 @@ In my off hours, I am…
 
 For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
-Currently doing Product Owner shenanigans at [Dynatrace]. Check them out, we are great!
+Currently, I am doing Product Owner shenanigans at [Dynatrace].
+We're currently working on the [Site Reliability Guardian].
+Check them out, we are great!
 
-I know my [GitHub] profile is a bit barren; my main contributions are usually held in private organization
-repositories. I swear, I will try to do *something* useful with my GitHub profile some day!
+I know my [GitHub] profile is a bit barren; my main contributions are usually held in private repositories
+all across GitLab, BitBucket, and GitHub.
+I swear, I will try to do *something* useful with my GitHub profile… some day!
+I have *plenty* of ideas.
+Sadly, the same cannot be said about spare time.
 
 ## Language Skills
 
@@ -40,15 +45,14 @@ repositories. I swear, I will try to do *something* useful with my GitHub profil
 
 In alphabetical order, you can find me here:
 
-- [GitHub] – even if it's puny right now
+- [GitHub] – even if it's puny… right now
 - [LinkedIn] – new, and only signed up reluctantly
 - [OpenStreetMap]
-- [ResearchGate]
+- [ResearchGate] – thinking about closing it eventually as I am no longer active in that community.
 
-I also exist on Reddit in a mainly read-only capacity. `r/netsec` is a great read though!
-I am also no stranger to Twitch.
+I am no stranger to Discord.
+Or Twitch.
 Or Steam.
-Or Discord.
 But outside that, it's slim pickings. Sorry!
 
 [GitHub]: https://github.com/MrManny
@@ -56,3 +60,4 @@ But outside that, it's slim pickings. Sorry!
 [OpenStreetMap]: https://www.openstreetmap.org/user/MrManny
 [ResearchGate]: https://www.researchgate.net/profile/Manuel-Warum
 [Dynatrace]: https://www.dynatrace.com/
+[Site Reliability Guardian]: https://www.dynatrace.com/support/help/platform-modules/cloud-automation/site-reliability-guardian
