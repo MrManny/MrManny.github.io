@@ -28,8 +28,7 @@ If only you could sniff in cyberspace.
 
 ## Management Reactions
 
-Sometimes I go with my requests to management.
-Outlandish requests, I am told.
+Sometimes I take my requests to management.
 Here's an artist's rendition of what their initial reaction might look like when I
 tell them my latest and greatest idea.
 
