@@ -15,7 +15,7 @@ Especially Deadpool. I mean, who'd look at this image and say, "yep, that's a De
 ## Captain Austria
 
 Did I mention coincidental similarities and plays on words yet?
-Anyway. As usual, any similarities are coincidental, etc.
+As usual, any similarities are coincidental, etc.
 So anyway, here's what Captain Austria might look like:
 
 ![Captain Austria](img/gallery/2023/captain-austria.webp)
