@@ -18,7 +18,8 @@ In my off hours, I am…
                            Labrador.
                            Also, I am usually covered in various canine fluids and fur.
 - I go crazy with **Stable Diffusion** way too often. Send help!
-  Also, [here's a few things](sd.md) I have been up to in that regard.
+  Also, [here's a few things](sd.md) I have been up to previously in that regard.
+  I still need to dig up some "masterworks" for SDXL. Hang in there.
 
 ## Business
 
