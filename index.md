@@ -17,17 +17,15 @@ In my off hours, I am…
                            ([Messor Barbarus](https://en.wikipedia.org/wiki/Messor_barbarus)) before, currently I have a
                            Labrador.
                            Also, I am usually covered in various canine fluids and fur.
-- I go crazy with **Stable Diffusion** way too often. Send help!
-  Also, [here's a few things](sd.md) I have been up to previously in that regard.
-  I still need to dig up some "masterworks" for SDXL. Hang in there.
+- I go crazy with **Generative Artificial Intelligence** way too often. Send help!
 
 ## Business
 
 For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
 Currently, I am doing Product Owner shenanigans at [Dynatrace].
-We're currently working on the [Site Reliability Guardian].
-Check them out, we are great!
+We're currently working on the [Site Reliability Guardian] and the Dynatrace Backstage Plug-in.
+Check us out, we are great!
 
 I know my [GitHub] profile is a bit barren; my main contributions are usually held in private repositories
 all across GitLab, BitBucket, and GitHub.
