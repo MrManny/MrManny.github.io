@@ -47,7 +47,6 @@ Sadly, the same cannot be said about spare time.
 In alphabetical order, you can find me here:
 
 - [GitHub] – even if it's puny… right now
-    - Hey, I authored [KaraokAI]! Come take a look! (Repository tends to be private from time to time.)
 - [LinkedIn]
 - [OpenStreetMap]
 - [ResearchGate] – thinking about closing it eventually as I am no longer active in that community.
@@ -62,4 +61,3 @@ But outside that, it's slim pickings. Sorry!
 [OpenStreetMap]: https://www.openstreetmap.org/user/MrManny
 [ResearchGate]: https://www.researchgate.net/profile/Manuel-Warum
 [Dynatrace]: https://www.dynatrace.com/
-[KaraokAI]: https://github.com/MrManny/karaokai
