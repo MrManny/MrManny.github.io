@@ -24,8 +24,6 @@ In my off hours, I am…
 For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
 Currently, I am doing Product Owner shenanigans at [Dynatrace].
-We're currently working on the Site Reliability Guardian, the Dynatrace Backstage Plug-in,
-GitLab for Workflows, PagerDuty, ServiceNow, and RedHat Event-Driven Ansible.
 Check us out, we are great!
 
 I know my [GitHub] profile is a bit barren; my main contributions are mostly in private repositories
