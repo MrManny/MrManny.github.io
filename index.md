@@ -15,7 +15,7 @@ In my off hours, I am…
 - an **additive manufacturing** enthusiast: this is slang for "I know 3d printing, and I know some CAD".
 - a friend of **animals**: I have had cats and ants
                            ([Messor Barbarus](https://en.wikipedia.org/wiki/Messor_barbarus)) before, currently I have a
-                           Labrador.
+                           Labrador Retriever.
                            Also, I am usually covered in animal hair.
 - I go crazy with **Generative Artificial Intelligence** way too often. Send help!
 
