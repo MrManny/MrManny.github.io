@@ -26,19 +26,12 @@ For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 Currently, I am doing Product Owner shenanigans at [Dynatrace].
 Check us out, we are great!
 
-I know my [GitHub] profile is a bit barren; my main contributions are mostly in private repositories
-all across GitLab, BitBucket, and GitHub.
-I swear, I will try to do *something* useful with my GitHub profile… some day!
-I have *plenty* of ideas.
-Sadly, the same cannot be said about spare time.
-
 ## Language Skills
 
 - German (native, allegedly)
 - English (fluent)
 - ~~Latin (ferrugineo)~~
 - ~~Ancient Greek (πολύ σκουριασμένο)~~
-- a plethora of programming and mark-up languages
 
 ## Find me
 
