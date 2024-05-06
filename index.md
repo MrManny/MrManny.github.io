@@ -25,6 +25,16 @@ For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
 Currently, I am doing Product Owner shenanigans at [Dynatrace].
 Check us out, we are great!
+Stuff on my plate includes:
+
+- Site Reliability Guardian
+- ServiceNow
+- PagerDuty
+- GitLab for Workflows
+- Jenkins for Workflows
+- Red Hat: Event-Driven Ansible
+- Backstage Plugin
+- et al.
 
 ## Language Skills
 
