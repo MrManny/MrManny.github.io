@@ -28,8 +28,8 @@ Check us out, we are great!
 Stuff on my plate includes:
 
 - Site Reliability Guardian
-- ServiceNow
-- PagerDuty
+- ServiceNow for Workflows
+- PagerDuty for Workflows
 - GitLab for Workflows
 - Jenkins for Workflows
 - Red Hat: Event-Driven Ansible
