@@ -28,12 +28,12 @@ Check us out, we are great!
 Stuff on my plate includes:
 
 - Site Reliability Guardian
-- ServiceNow for Workflows
-- PagerDuty for Workflows
-- GitLab for Workflows
-- Jenkins for Workflows
-- Red Hat: Event-Driven Ansible
-- Backstage Plugin
+- ServiceNow connector
+- PagerDuty connector
+- GitLab connector
+- Jenkins connector
+- Red Hat: Event-Driven Ansible connector
+- Backstage Plug-in
 - et al.
 
 ## Language Skills
