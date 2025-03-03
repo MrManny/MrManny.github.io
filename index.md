@@ -1,4 +1,4 @@
-![Me](img/sd.jpg)
+![Me](img/profile.jpg)
 
 Manny, Mr.
 
