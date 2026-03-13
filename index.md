@@ -5,13 +5,14 @@ Researcher, Engineer, Tinkerer
 ## Private
 
 In my off hours, I am…
+
+- a tinkerer: I have been tinkering with Generative Artificial Intelligence before it was cool.
 - a gamer: board games, video games, role-playing games, tabletop games; you name it!
            *Epic Spell Wars* is great, by the way.
 - an archer: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the target.
 - a cartograph: I sometimes spend some time to survey for OpenStreetMap.
                 I am no stranger to geographic information systems.
 - an additive manufacturing enthusiast: this is slang for "I know 3d printing, and I know some CAD".
-- I have been tinkering with Generative Artificial Intelligence before it was cool.
 
 ## Business
 
@@ -19,7 +20,7 @@ For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
 Currently, I am doing Senior Product Owner shenanigans at [Dynatrace].
 Check us out, we are great!
-Stuff on my plate includes:
+Stuff on my plate includes (or included):
 
 - Site Reliability Guardian
 - ServiceNow connector
