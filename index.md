@@ -1,17 +1,17 @@
 ![Me](img/profile.jpg)
 
-Senior Software Engineer and Product Owner, Austria.
+Researcher, Engineer, Tinkerer
 
 ## Private
 
 In my off hours, I am…
-- a **gamer**: board games, video games, role-playing games, tabletop games; you name it!
-               *Epic Spell Wars* is great, by the way.
-- an **archer**: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the target.
-- a **mapper**: I sometimes spend some time to survey for OpenStreetMap.
+- a gamer: board games, video games, role-playing games, tabletop games; you name it!
+           *Epic Spell Wars* is great, by the way.
+- an archer: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the target.
+- a cartograph: I sometimes spend some time to survey for OpenStreetMap.
                 I am no stranger to geographic information systems.
-- an **additive manufacturing** enthusiast: this is slang for "I know 3d printing, and I know some CAD".
-- I go crazy with **Generative Artificial Intelligence** way too often. Send help!
+- an additive manufacturing enthusiast: this is slang for "I know 3d printing, and I know some CAD".
+- I have been tinkering with Generative Artificial Intelligence before it was cool.
 
 ## Business
 
@@ -28,7 +28,8 @@ Stuff on my plate includes:
 - Jenkins connector
 - Red Hat: Event-Driven Ansible connector
 - Backstage Plug-in
-- et al.
+- Local MCP Server
+- and other things yet to come 😉
 
 ## Language Skills
 
@@ -44,12 +45,9 @@ In alphabetical order, you can find me here:
 - [GitHub] – even if it's puny… right now
 - [LinkedIn]
 - [OpenStreetMap]
-- [ResearchGate] – thinking about closing it eventually as I am no longer active in that community.
+- [ResearchGate] – thinking about closing it eventually. I am no longer active in that community.
 
-I am no stranger to Discord.
-Or Twitch.
-Or Steam.
-But outside that, it's slim pickings. Sorry!
+Hit me up if you want to talk about things!
 
 [GitHub]: https://github.com/MrManny
 [LinkedIn]: https://www.linkedin.com/in/manuel-w-a54850235/
