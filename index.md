@@ -19,7 +19,6 @@ In my off hours, I am…
 For business stuff, you can probably just check my [LinkedIn] profile, I guess.
 
 Currently, I am doing Senior Product Owner shenanigans at [Dynatrace].
-Check us out, we are great!
 Stuff on my plate includes (or included):
 
 - Site Reliability Guardian
