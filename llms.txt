@@ -1,0 +1,33 @@
+# Manuel Warum
+
+> AI Product Leader and Senior Product Owner at Dynatrace, specializing in
+> platform integrations, generative AI, and DevOps automation.
+
+## About
+
+Manuel Warum (also known as Mr. Manny) is a Senior Product Owner at Dynatrace
+with deep experience in AI-driven product development. He leads product strategy
+for a portfolio that includes MCP servers, CI/CD integrations (Jenkins, GitLab,
+Backstage), site reliability tools, and event-driven automation connectors
+(ServiceNow, PagerDuty, Red Hat Ansible).
+
+He has been experimenting with generative AI and large language models since
+before they became mainstream, and thinks deeply about how AI reshapes product
+development, DevOps practices, and developer tooling.
+
+## Expertise
+
+- AI Product Leadership and Strategy
+- Generative AI and Large Language Models
+- Model Context Protocol (MCP)
+- DevOps and Platform Engineering
+- Site Reliability Engineering
+- CI/CD Pipeline Integrations
+- Agile Product Ownership
+- Observability and Monitoring
+
+## Links
+
+- Website: https://mrmanny.github.io
+- LinkedIn: https://www.linkedin.com/in/manuel-w-a54850235/
+- GitHub: https://github.com/MrManny
