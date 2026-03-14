@@ -1,5 +1,34 @@
 remote_theme: pages-themes/slate@v0.2.0
+url: "https://mrmanny.github.io"
+baseurl: ""
+title: "Manuel Warum – AI Product Leader & Engineering Strategist"
+description: >-
+  Manuel Warum is a Senior Product Owner at Dynatrace specializing in AI-driven
+  DevOps, platform integrations, and generative AI. Building products at the
+  intersection of AI, observability, and platform engineering.
+lang: "en"
+
 plugins:
   - jekyll-remote-theme
-title: Mr. Manny
-description: Two is the oddest prime number
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+author:
+  name: "Manuel Warum"
+  url: "https://mrmanny.github.io"
+
+social:
+  name: "Manuel Warum"
+  links:
+    - "https://www.linkedin.com/in/manuel-w-a54850235/"
+    - "https://github.com/MrManny"
+    - "https://www.researchgate.net/profile/Manuel-Warum"
+
+twitter:
+  card: "summary"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/img/profile.jpg"

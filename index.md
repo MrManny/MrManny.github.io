@@ -1,53 +1,66 @@
-![Me](img/profile.jpg)
+![Manuel Warum](img/profile.jpg)
 
-Researcher, Engineer, Tinkerer
+# Manuel Warum
 
-## Private
+**AI Product Leader | Senior Product Owner at Dynatrace | Generative AI Practitioner**
 
-In my off hours, I am…
+I build products at the intersection of AI, DevOps, and platform engineering. Currently, I lead
+product strategy for AI-powered integrations at [Dynatrace] — connecting the observability
+platform with the tools engineering teams actually use. Before generative AI had a marketing
+budget, I was already tinkering with it.
 
-- a tinkerer: I have been tinkering with Generative Artificial Intelligence before it was cool.
-- a gamer: board games, video games, role-playing games, tabletop games; you name it!
-           *Epic Spell Wars* is great, by the way.
-- an archer: currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the target.
-- a cartograph: I sometimes spend some time to survey for OpenStreetMap.
-                I am no stranger to geographic information systems.
-- an additive manufacturing enthusiast: this is slang for "I know 3d printing, and I know some CAD".
+## What I Build
 
-## Business
+At [Dynatrace], I own the product vision and roadmap for a portfolio of platform integrations
+and AI-driven tools. Some highlights:
 
-For business stuff, you can probably just check my [LinkedIn] profile, I guess.
+- **Local MCP Server** — Designed and shipped a [Model Context Protocol](https://modelcontextprotocol.io/)
+  server, enabling LLM-powered workflows to interact with Dynatrace observability data.
+- **Site Reliability Guardian** — Led product development for an automated reliability
+  validation tool that helps SRE teams catch regressions before they reach production.
+- **CI/CD Connectors** — Owned product strategy for Jenkins, GitLab, and Backstage
+  integrations, embedding observability into developer workflows.
+- **Event-Driven Automation** — Shipped a Red Hat Event-Driven Ansible connector, bridging
+  observability signals with automated remediation.
+- **ServiceNow & PagerDuty Connectors** — Closing the loop between incident management
+  and observability.
+- ...and other things yet to come 😉
 
-Currently, I am doing Senior Product Owner shenanigans at [Dynatrace].
-Stuff on my plate includes (or included):
+I think a lot about how AI changes the way teams operate — how LLMs can augment product
+decisions, how MCP reshapes tool integrations, and what "AI-native" DevOps actually looks like
+in practice.
 
-- Site Reliability Guardian
-- ServiceNow connector
-- PagerDuty connector
-- GitLab connector
-- Jenkins connector
-- Red Hat: Event-Driven Ansible connector
-- Backstage Plug-in
-- Local MCP Server
-- and other things yet to come 😉
+## What I Tinker With
 
-## Language Skills
+In my off hours, I pursue interests that keep me curious and building things:
+
+- **Generative AI** — Experimenting with LLMs, prompt engineering, and agentic workflows
+  since before it was cool. I enjoy exploring what these systems can and cannot do.
+- **3D Printing & CAD** — Additive manufacturing enthusiast. I design parts, I print parts,
+  sometimes they even fit together.
+- **Cartography & GIS** — Active [OpenStreetMap] contributor with experience in geographic
+  information systems.
+- **Archery** — Currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the
+  target.
+- **Gaming** — Board games, video games, role-playing games, tabletop games; you name it.
+  *Epic Spell Wars* is great, by the way.
+
+## Languages
 
 - German (native, allegedly)
 - English (fluent)
 - ~~Latin (ferrugineo)~~
 - ~~Ancient Greek (πολύ σκουριασμένο)~~
 
-## Find me
+## Let's Connect
 
-In alphabetical order, you can find me here:
+I'm always interested in conversations about AI product leadership, platform engineering,
+and the future of developer tooling.
 
-- [GitHub] – even if it's puny… right now
-- [LinkedIn]
-- [OpenStreetMap]
-- [ResearchGate] – thinking about closing it eventually. I am no longer active in that community.
-
-Hit me up if you want to talk about things!
+- [LinkedIn] — Best for professional inquiries
+- [GitHub] — Where the code lives
+- [OpenStreetMap] — Where the maps live
+- [ResearchGate] — Academic past life
 
 [GitHub]: https://github.com/MrManny
 [LinkedIn]: https://www.linkedin.com/in/manuel-w-a54850235/
