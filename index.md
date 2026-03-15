@@ -2,7 +2,7 @@
 
 # Manuel Warum
 
-**AI Product Leader | Senior Product Owner at Dynatrace | Generative AI Practitioner**
+Senior Product Owner ‖ Research Engineer ‖ Generative AI Afficionado
 
 I build products at the intersection of AI, DevOps, and platform engineering. Currently, I lead
 product strategy for AI-powered integrations at [Dynatrace] - connecting the observability
@@ -11,10 +11,10 @@ budget, I was already tinkering with it.
 
 ## What I Build
 
-At [Dynatrace], I own the product vision and roadmap for a portfolio of platform integrations
+At [Dynatrace], I drive the product and roadmap execution for a portfolio of platform integrations
 and AI-driven tools. Some highlights:
 
-- **Local MCP Server**: Designed and shipped a [Model Context Protocol](https://modelcontextprotocol.io/)
+- **Local MCP Server**: Co-authored and shipped a [Model Context Protocol](https://modelcontextprotocol.io/)
   server, enabling LLM-powered workflows to interact with Dynatrace observability data.
 - **Site Reliability Guardian**: Led product development for an automated reliability
   validation tool that helps SRE teams catch regressions before they reach production.
@@ -24,7 +24,7 @@ and AI-driven tools. Some highlights:
   observability signals with automated remediation.
 - **ServiceNow & PagerDuty Connectors**: Closing the loop between incident management
   and observability.
-- ...and other things yet to come 😉
+- …and other things yet to come 😉
 
 I think a lot about how AI changes the way teams operate, how LLMs can inform engineering
 decisions, how MCP reshapes tool integrations, and what "AI-native" DevOps actually looks like
@@ -35,11 +35,13 @@ in practice.
 In my off hours, I pursue interests that keep me curious and building things:
 
 - **Generative AI**: Experimenting with LLMs, prompt engineering, and agentic workflows
-  since before it was cool (i.e., for 5+ years). I enjoy exploring what these systems can and cannot do.
+  since before it was cool (i.e., for 5+ years before ChatGPT existed).
+  I enjoy exploring what these systems can do (and lately also what they can't).
 - **3D Printing & CAD**: Additive manufacturing enthusiast. I design parts, I print parts,
-  sometimes they even fit together.
+  sometimes they even fit together. Bonus points if nothing explodes.
 - **Cartography & GIS**: Active [OpenStreetMap] contributor with experience in geographic
-  information systems.
+  information systems. If you see me tap around on my phone while walking my dog,
+  there is a reasonable chance I am updating OSM data.
 - **Archery**: Currently shooting with a 28 lbs recurve bow. Sometimes, I also hit the
   target.
 - **Gaming**: Board games, video games, role-playing games, tabletop games; you name it.
@@ -57,10 +59,10 @@ In my off hours, I pursue interests that keep me curious and building things:
 I'm always interested in conversations about AI product leadership, platform engineering,
 and the future of developer tooling.
 
-- [LinkedIn] — Best for professional inquiries
-- [GitHub] — Where the code lives
-- [OpenStreetMap] — Where the maps live
-- [ResearchGate] — Academic past life
+- [LinkedIn]: Best for professional inquiries
+- [GitHub]: Where the code lives
+- [OpenStreetMap]: Where the maps live
+- [ResearchGate]: Research contributions
 
 [GitHub]: https://github.com/MrManny
 [LinkedIn]: https://www.linkedin.com/in/manuel-w-a54850235/
