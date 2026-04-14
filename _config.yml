@@ -1,11 +1,11 @@
 remote_theme: pages-themes/slate@v0.2.0
 url: "https://mrmanny.github.io"
 baseurl: ""
-title: "Mr. Manny – AI Expert & Engineering Afficionado"
+title: "Mr. Manny - Senior Software Engineer and AI Expert"
 description: >-
-  Mr. Manny is a Senior Product Owner at Dynatrace specializing in reliability,
-  platform integrations, and generative AI. Building products at the
-  intersection of AI, observability, and engineering.
+  Manuel Warum builds products at the intersection of AI, DevOps, and platform
+  engineering. At Dynatrace, he leads product strategy for AI-powered
+  integrations and observability-driven workflows.
 lang: "en"
 
 plugins:
@@ -22,6 +22,7 @@ social:
   links:
     - "https://www.linkedin.com/in/manuel-w-a54850235/"
     - "https://github.com/MrManny"
+    - "https://www.openstreetmap.org/user/MrManny"
     - "https://www.researchgate.net/profile/Manuel-Warum"
 
 twitter:
@@ -31,4 +32,4 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/img/profile.jpg"
+      image: "/img/profile.png"

@@ -1,19 +1,28 @@
 # Manuel Warum
 
-> AI Product Leader and Senior Product Owner at Dynatrace, specializing in
-> platform integrations, generative AI, and DevOps automation.
+> Senior Software Engineer, Product Owner, Research Engineer, and Generative AI expert.
 
-## About
+I build products at the intersection of AI, DevOps, and platform engineering.
+At Dynatrace, I lead product strategy for AI-powered integrations that connect
+observability data with the tools engineering teams use every day.
 
-Manuel Warum (also known as Mr. Manny) is a Senior Product Owner at Dynatrace
-with deep experience in AI-driven product development. He leads product strategy
-for a portfolio that includes MCP servers, CI/CD integrations (Jenkins, GitLab,
-Backstage), site reliability tools, and event-driven automation connectors
-(ServiceNow, PagerDuty, Red Hat Ansible).
+## What I Build
 
-He has been experimenting with generative AI and large language models since
-before they became mainstream, and thinks deeply about how AI reshapes product
-development, DevOps practices, and developer tooling.
+At Dynatrace, I drive product and roadmap execution for a portfolio of
+platform integrations and AI-driven tooling, including:
+
+- Local MCP Server: Local Model Context Protocol workflows for Dynatrace
+	observability data.
+- Site Reliability Guardian: Automated reliability validation to catch
+	regressions early.
+- CI/CD Connectors: Jenkins, GitLab, and Backstage integrations.
+- Event-Driven Automation: Red Hat Event-Driven Ansible connector for
+	observability-driven remediation.
+- ServiceNow and PagerDuty Connectors: Bridging incident management and
+	observability loops.
+
+I have been experimenting with generative AI and LLM-driven workflows since
+well before they became mainstream.
 
 ## Expertise
 
@@ -25,9 +34,20 @@ development, DevOps practices, and developer tooling.
 - CI/CD Pipeline Integrations
 - Agile Product Ownership
 - Observability and Monitoring
+- Event-Driven Automation
+- 3D Printing and CAD
+- Cartography and Geographic Information Systems
+
+## Extras
+
+- Extracurricular projects, including contributions around Lange Nacht der
+	Forschung 2026.
+- Volunteer work supporting people in need.
 
 ## Links
 
 - Website: https://mrmanny.github.io
 - LinkedIn: https://www.linkedin.com/in/manuel-w-a54850235/
 - GitHub: https://github.com/MrManny
+- OpenStreetMap: https://www.openstreetmap.org/user/MrManny
+- ResearchGate: https://www.researchgate.net/profile/Manuel-Warum
