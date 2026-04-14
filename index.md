@@ -1,4 +1,4 @@
-![Manuel Warum](img/profile.jpg)
+![Manuel Warum](img/profile.png)
 
 # Manuel Warum
 
