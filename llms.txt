@@ -1,6 +1,6 @@
 # Manuel Warum
 
-> Senior Software Engineer, Product Owner, Research Engineer, and Generative AI expert.
+> Senior Software Engineer, Product Owner, Research Engineer, and Generative AI Champion.
 
 I build products at the intersection of AI, DevOps, and platform engineering.
 At Dynatrace, I lead product strategy for AI-powered integrations that connect
