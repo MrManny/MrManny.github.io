@@ -23,6 +23,17 @@ platform integrations and AI-driven tooling, including:
 
 I have been experimenting with generative AI and LLM-driven workflows since
 well before they became mainstream.
+I enjoy exploring efficient solutions with reliability, cost, and repeatability in mind.
+
+## What I Teach
+
+Due to my unique positioning (5+ experience in generative AI), I have had an early start to
+working with generative AI.
+I use that knowledge to help my colleagues managing day-to-day operations more efficiently,
+infusing my technical expertise in design of agentic systems.
+
+I also have a decent background in agile processes and forecasting methods.
+I use it to drive reliable predictions of delivery times, ensuring that our customers are met with success on schedule (or usually event before schedule).
 
 ## Expertise
 

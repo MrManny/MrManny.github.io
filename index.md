@@ -26,6 +26,16 @@ I think a lot about how AI changes the way teams operate, how LLMs can inform en
 
 I also look beyond what today's concerns are, identifying and building the toolings for the future.
 
+## What I Teach
+
+Due to my unique positioning (5+ experience in generative AI), I have had an early start to
+working with generative AI.
+I use that knowledge to help my colleagues managing day-to-day operations more efficiently,
+infusing my technical expertise in design of agentic systems.
+
+I also have a decent background in agile processes and forecasting methods.
+I use it to drive reliable predictions of delivery times, ensuring that our customers are met with success on schedule (or usually event before schedule).
+
 ## Extras
 
 In the uncanny valley between business and pleasure, I also drive extracurricular projects, such as for the Lange Nacht der Forschung 2026.
@@ -37,8 +47,8 @@ I also do volunteer work from time to time, helping those in need.
 In my off hours, I pursue interests that keep me curious and building things:
 
 - **Generative AI:** Experimenting with LLMs, prompt engineering, and agentic workflows
-  since before it was cool (i.e., for 5+ years before ChatGPT existed).
-  I enjoy exploring what these systems can do (and lately also what they can't).
+  since before it was cool (i.e., for 5+ years).
+  I enjoy exploring efficient solutions with reliability, cost, and repeatability in mind.
 - **3D Printing & CAD:** Additive manufacturing enthusiast. I design parts, I print parts,
   sometimes they even fit together. Bonus points if nothing explodes.
 - **Cartography & GIS:** Active OpenStreetMap contributor with experience in geographic
@@ -53,8 +63,6 @@ In my off hours, I pursue interests that keep me curious and building things:
 
 - German (native, allegedly)
 - English (fluent)
-- ~~Latin (ferrugineo)~~
-- ~~Ancient Greek (πολύ σκουριασμένο)~~
 
 ## Let's Connect
 
