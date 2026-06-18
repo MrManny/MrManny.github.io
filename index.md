@@ -5,7 +5,7 @@
 > Senior Software Engineer ‖ Product Owner ‖ Research Engineer ‖ Generative AI Champion
 
 I build products at the intersection of AI, DevOps, and platform engineering. Currently, I lead
-product strategy for AI-powered integrations at [Dynatrace](https://www.dynatrace.com/) -
+product execution for AI-powered integrations at [Dynatrace](https://www.dynatrace.com/) -
 connecting the observability platform with the tools engineering teams actually use.
 Before generative AI had a marketing budget, I was already tinkering with it.
 
@@ -14,6 +14,7 @@ Before generative AI had a marketing budget, I was already tinkering with it.
 At Dynatrace, I drive the product and roadmap execution for a portfolio of platform integrations
 and AI-driven tools. Some highlights:
 
+- **Bluebox:** Dynatrace's latest offering in the AI space.
 - **Local MCP Server:** Assisted with the local [Model Context Protocol](https://github.com/dynatrace-oss/dynatrace-mcp/) server, enabling LLM-powered workflows to interact with Dynatrace observability data.
 - **Site Reliability Guardian:** Led product development for an automated reliability validation tool that helps SRE teams catch regressions before customers do.
 - **CI/CD Connectors:** Owned product development for Jenkins, GitLab, and Backstage integrations, embedding observability into developer workflows.
@@ -28,13 +29,14 @@ I also look beyond what today's concerns are, identifying and building the tooli
 
 ## What I Teach
 
-Due to my unique positioning (5+ experience in generative AI), I have had an early start to
-working with generative AI.
+Due to my unique positioning, I have had an early start to working with generative AI.
+I have seen the technology take its first baby steps, and held its hands on the journey to maturity.
 I use that knowledge to help my colleagues managing day-to-day operations more efficiently,
-infusing my technical expertise in design of agentic systems.
+infusing my expertise in design of agentic systems.
 
 I also have a decent background in agile processes and forecasting methods.
-I use it to drive reliable predictions of delivery times, ensuring that our customers are met with success on schedule (or usually event before schedule).
+I use it to drive reliable predictions of delivery times using Monte Carlo,
+ensuring that our customers are met with success on time.
 
 ## Extras
 
@@ -46,8 +48,7 @@ I also do volunteer work from time to time, helping those in need.
 
 In my off hours, I pursue interests that keep me curious and building things:
 
-- **Generative AI:** Experimenting with LLMs, prompt engineering, and agentic workflows
-  since before it was cool (i.e., for 5+ years).
+- **Generative AI:** Working with LLMs, prompt engineering, and agentic workflows for more than five years.
   I enjoy exploring efficient solutions with reliability, cost, and repeatability in mind.
 - **3D Printing & CAD:** Additive manufacturing enthusiast. I design parts, I print parts,
   sometimes they even fit together. Bonus points if nothing explodes.

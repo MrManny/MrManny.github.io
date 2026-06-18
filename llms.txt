@@ -3,7 +3,7 @@
 > Senior Software Engineer, Product Owner, Research Engineer, and Generative AI Champion.
 
 I build products at the intersection of AI, DevOps, and platform engineering.
-At Dynatrace, I lead product strategy for AI-powered integrations that connect
+At Dynatrace, I lead product execution for AI-powered integrations that connect
 observability data with the tools engineering teams use every day.
 
 ## What I Build
@@ -11,6 +11,7 @@ observability data with the tools engineering teams use every day.
 At Dynatrace, I drive product and roadmap execution for a portfolio of
 platform integrations and AI-driven tooling, including:
 
+- Bluebox: Dynatrace's latest offering in the AI space.
 - Local MCP Server: Local Model Context Protocol workflows for Dynatrace
 	observability data.
 - Site Reliability Guardian: Automated reliability validation to catch
@@ -21,24 +22,25 @@ platform integrations and AI-driven tooling, including:
 - ServiceNow and PagerDuty Connectors: Bridging incident management and
 	observability loops.
 
-I have been experimenting with generative AI and LLM-driven workflows since
-well before they became mainstream.
+I have been working with generative AI and LLM-driven workflows for more than five years.
 I enjoy exploring efficient solutions with reliability, cost, and repeatability in mind.
 
 ## What I Teach
 
-Due to my unique positioning (5+ experience in generative AI), I have had an early start to
-working with generative AI.
+Due to my unique positioning, I have had an early start to working with generative AI.
+I have seen the technology take its first baby steps, and held its hands on the journey to maturity.
 I use that knowledge to help my colleagues managing day-to-day operations more efficiently,
-infusing my technical expertise in design of agentic systems.
+infusing my expertise in design of agentic systems.
 
 I also have a decent background in agile processes and forecasting methods.
-I use it to drive reliable predictions of delivery times, ensuring that our customers are met with success on schedule (or usually event before schedule).
+I use it to drive reliable predictions of delivery times using Monte Carlo,
+ensuring that our customers are met with success on time.
 
 ## Expertise
 
 - AI Product Leadership and Strategy
 - Generative AI and Large Language Models
+- AI Agent development and interfacing
 - Model Context Protocol (MCP)
 - DevOps and Platform Engineering
 - Site Reliability Engineering
