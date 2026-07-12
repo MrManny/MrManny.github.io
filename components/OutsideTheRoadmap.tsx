@@ -1,9 +1,9 @@
 const interests = [
-  ['Generative AI', 'LLMs, prompt engineering, and reliable agentic workflows.'],
-  ['3D Printing + CAD', 'Designing and printing parts. Sometimes they even fit together.'],
-  ['Cartography + GIS', 'Contributing to OpenStreetMap, often while walking the dog.'],
-  ['Archery', 'A 28 lbs recurve bow and the occasional encounter with the target.'],
-  ['Gaming', 'Board, video, role-playing, and tabletop games of every variety.'],
+  ['Generative AI', 'LLMs, harness engineering, and reliable agentic workflows. Also with a strong interest in diffusion-based open-weight models.'],
+  ['3D Printing + CAD', 'Designing and printing parts. Sometimes they even fit together (but only sometimes).'],
+  ['Cartography + GIS', 'Contributing to OpenStreetMap, often while walking the dog or flying my DJI drone.'],
+  ['Archery', 'A 28 lbs recurve bow, and I occasionally even hit the target. What a time to be alive!'],
+  ['Gaming', 'Board, video, card, role-playing, and tabletop games of every variety.'],
 ];
 
 export default function OutsideTheRoadmap() {
@@ -32,11 +32,12 @@ export default function OutsideTheRoadmap() {
           </article>
         ))}
         <article className="interest-card extra-card">
-          <span className="interest-index">+</span>
+          <span className="interest-index">++</span>
           <div>
             <h3>Beyond the brief</h3>
             <p>
               Extracurricular research projects and volunteer work supporting people in need.
+              I also often have more ideas than energy, so I am more than happy to offload my many ideas.
             </p>
           </div>
         </article>
