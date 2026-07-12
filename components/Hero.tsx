@@ -17,12 +17,6 @@ export default function Hero() {
           <a className="button button-primary" href="#build">Explore my work</a>
           <a className="button button-ghost" href="#connect">Start a conversation</a>
         </div>
-        <div className="signal-strip" aria-label="Areas of expertise">
-          <span>Product</span><i />
-          <span>Engineering</span><i />
-          <span>AI systems</span><i />
-          <span>Observability</span>
-        </div>
       </div>
 
       <div className="hero-visual" aria-label="Portrait of Manuel Warum">

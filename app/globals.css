@@ -561,7 +561,7 @@ a:focus-visible {
   position: relative;
   z-index: 2;
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   color: var(--color-text-muted);
   font-family: ui-monospace, monospace;
   font-size: 0.58rem;
@@ -573,8 +573,8 @@ a:focus-visible {
 
 .card-mark {
   position: absolute;
-  right: -15px;
-  top: 30px;
+  right: -8px;
+  top: 24px;
   color: transparent;
   font-size: 10rem;
   font-weight: 900;
