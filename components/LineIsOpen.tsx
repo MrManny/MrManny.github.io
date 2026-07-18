@@ -39,12 +39,18 @@ export default function LineIsOpen() {
         </p>
         <div className="social-grid">
           {socialLinks.map((link) => (
-            <a href={link.href} key={link.name}>
+            <a href={link.href} key={link.name} target="_blank" rel="noopener noreferrer">
               <span>{link.name}</span>
               <small>{link.description}</small>
               <b aria-hidden="true">↗</b>
+              <span className="visually-hidden">(opens in new tab)</span>
             </a>
           ))}
+        </div>
+        <div className="language-line">
+          <span>German — native</span>
+          <span>English — fluent</span>
+          <span>Klagenfurt, Austria — CET</span>
         </div>
       </div>
     </section>

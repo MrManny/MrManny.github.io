@@ -6,6 +6,8 @@ const systems = [
     title: 'Bluebox',
     tag: 'AI / Product',
     description: "Dynatrace's latest offering in the AI space.",
+    meta: 'Agentic Engineering · Dynatrace',
+    href: 'https://www.bluebox.ai/',
     featured: true,
   },
   {
@@ -14,6 +16,8 @@ const systems = [
     tag: 'Open source / MCP',
     description:
       'LLM-powered workflows that interact directly with Dynatrace observability data.',
+    href: 'https://github.com/MrManny',
+    old: true,
   },
   {
     number: '03',
@@ -21,6 +25,7 @@ const systems = [
     tag: 'SRE / Automation',
     description:
       'Automated reliability validation that helps teams catch regressions before customers do.',
+    old: true,
   },
   {
     number: '04',
@@ -28,6 +33,7 @@ const systems = [
     tag: 'Platform / DevOps',
     description:
       'Jenkins, GitLab, and Backstage integrations that embed observability into developer workflows.',
+    old: true,
   },
   {
     number: '05',
@@ -35,12 +41,14 @@ const systems = [
     tag: 'Ansible / Remediation',
     description:
       'A Red Hat Event-Driven Ansible connector bridging observability signals with remediation.',
+    old: true,
   },
   {
     number: '06',
     title: 'Incident Connectors',
     tag: 'ServiceNow / PagerDuty',
     description: 'Closing the loop between incident management and observability.',
+    old: true,
   },
 ] satisfies SystemCardProps[];
 

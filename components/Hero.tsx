@@ -1,4 +1,6 @@
 import ProfilePhoto from './ProfilePhoto';
+import ScrollCue from './ScrollCue';
+import StatusCard from './StatusCard';
 
 export default function Hero() {
   return (
@@ -17,20 +19,23 @@ export default function Hero() {
           <a className="button button-primary" href="#build">Explore my work</a>
           <a className="button button-ghost" href="#connect">Start a conversation</a>
         </div>
+        <p className="signal-strip">
+          <span>MCP servers</span> <i /> <span>Agentic systems</span> <i /> <span>SRE automation</span>{' '}
+          <i /> <span>Monte Carlo forecasting</span>
+        </p>
       </div>
 
-      <div className="hero-visual" aria-label="Portrait of Manuel Warum">
+      <div className="hero-visual">
         <div className="orbit orbit-outer" />
         <div className="orbit orbit-inner" />
         <div className="portrait-glow" />
         <div className="portrait-frame">
           <ProfilePhoto />
         </div>
-        <div className="status-card">
-          <span className="status-dot" />
-          <div><small>Currently building</small><strong>AI-native workflows</strong></div>
-        </div>
+        <StatusCard />
       </div>
+
+      <ScrollCue />
     </header>
   );
 }

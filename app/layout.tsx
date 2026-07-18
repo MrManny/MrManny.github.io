@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Inter, Fraunces } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -7,6 +7,19 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
 });
+
+// Self-hosted at build time via next/font — no runtime CDN dependency.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  style: ['italic'],
+  axes: ['opsz'],
+  display: 'swap',
+  variable: '--font-fraunces',
+});
+
+export const viewport: Viewport = {
+  themeColor: '#11110f',
+};
 
 const SITE_URL = 'https://mrmanny.github.io';
 
@@ -96,7 +109,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
       <body>
         <script
           type="application/ld+json"
