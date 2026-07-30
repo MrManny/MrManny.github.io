@@ -21,6 +21,6 @@
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
     "serve": "^14.2.6",
-    "typescript": "^5.8.0"
+    "typescript": "^7.0.2"
   }
 }
