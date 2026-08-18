@@ -271,24 +271,6 @@ section[id] {
   z-index: 3;
 }
 
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--color-gold);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.eyebrow > span {
-  width: 28px;
-  height: 1px;
-  background: currentColor;
-}
-
 .hero h1 {
   margin: 30px 0 38px;
   font-size: clamp(5rem, 9.7vw, 9.2rem);
@@ -300,25 +282,6 @@ section[id] {
 .hero h1 > span,
 .hero h1 > em {
   display: block;
-}
-
-.outline-text {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--color-accent);
-  text-stroke: 2px var(--color-accent);
-  filter: drop-shadow(0 0 30px rgba(25, 102, 255, 0.16));
-}
-
-.hero-lede {
-  max-width: 630px;
-  color: var(--color-text-muted);
-  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
-  line-height: 1.65;
-}
-
-.hero-lede strong {
-  color: var(--color-text);
-  font-weight: 600;
 }
 
 .hero-actions {
@@ -365,30 +328,6 @@ section[id] {
 
 .button-ghost:hover {
   border-color: rgba(25, 102, 255, 0.5);
-}
-
-.signal-strip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 7px 13px;
-  margin-top: 55px;
-  color: var(--color-text-faint);
-  font-family: ui-monospace, 'Cascadia Code', monospace;
-  font-size: 0.625rem; /* 10px floor */
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.signal-strip span {
-  white-space: nowrap;
-}
-
-.signal-strip i {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--color-accent);
 }
 
 .scroll-cue {
@@ -589,12 +528,6 @@ section[id] {
   padding-top: 12px;
 }
 
-.section-number {
-  color: var(--color-accent);
-  font-family: ui-monospace, monospace;
-  font-size: 0.7rem;
-}
-
 .section-heading h2,
 .connect-section h2 {
   font-size: clamp(3rem, 5.4vw, 5.5rem);
@@ -693,22 +626,6 @@ a.project-card:focus-visible {
 
 .featured .card-top { color: rgba(10, 10, 9, 0.68); }
 
-.card-mark {
-  position: absolute;
-  right: -4px;
-  top: 14px;
-  color: transparent;
-  font-size: 6.5rem;
-  font-weight: 900;
-  letter-spacing: -0.1em;
-  line-height: 1;
-  -webkit-text-stroke: 1px rgba(242, 237, 223, 0.045);
-}
-
-.featured .card-mark {
-  -webkit-text-stroke-color: rgba(10, 10, 9, 0.15);
-}
-
 .card-copy {
   position: relative;
   z-index: 2;
@@ -730,19 +647,6 @@ a.project-card:focus-visible {
 }
 
 .featured .card-copy p { color: rgba(10, 10, 9, 0.73); }
-
-.card-meta {
-  position: relative;
-  z-index: 2;
-  margin-top: 10px;
-  color: var(--color-text-faint);
-  font-family: ui-monospace, monospace;
-  font-size: 0.625rem; /* 10px floor */
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.featured .card-meta { color: rgba(10, 10, 9, 0.62); }
 
 .card-arrow {
   position: absolute;
@@ -783,21 +687,8 @@ a.project-card:focus-visible {
   justify-content: space-between;
 }
 
-.old .card-mark {
-  -webkit-text-stroke-color: rgba(242, 237, 223, 0.03);
-}
-
 .card-status {
   color: var(--color-text-faint);
-}
-
-.work-note {
-  width: min(660px, 100%);
-  margin: 65px 0 0 auto;
-  padding-left: 28px;
-  border-left: 1px solid var(--color-accent);
-  color: var(--color-text-muted);
-  font-size: 1.08rem;
 }
 
 /* Thinking */
@@ -846,16 +737,7 @@ a.project-card:focus-visible {
   padding-top: 8px;
 }
 
-.display-quote {
-  margin-bottom: 38px;
-  color: var(--color-text);
-  font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 3vw, 2.6rem);
-  font-style: italic;
-  line-height: 1.2;
-}
-
-.thinking-copy > p:not(.display-quote) {
+.thinking-copy > p {
   margin-bottom: 22px;
   color: var(--color-text-muted);
 }
@@ -898,12 +780,6 @@ a.project-card:focus-visible {
 .interest-card:hover {
   padding-left: 40px;
   background: linear-gradient(90deg, rgba(25, 102, 255, 0.08), transparent);
-}
-
-.interest-index {
-  color: var(--color-accent);
-  font-family: ui-monospace, monospace;
-  font-size: 0.66rem;
 }
 
 .interest-side {
@@ -971,12 +847,6 @@ a.project-card:focus-visible {
   line-height: 0.88;
 }
 
-.connect-intro {
-  max-width: 610px;
-  color: var(--color-text-muted);
-  font-size: 1.05rem;
-}
-
 .social-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1032,20 +902,15 @@ a.project-card:focus-visible {
 .site-footer a:hover { color: var(--color-accent); }
 
 /* Entrance choreography */
-.hero .eyebrow,
 .hero h1,
-.hero-lede,
 .hero-actions,
-.signal-strip,
 .hero-visual {
   opacity: 0;
   animation: enter 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .hero h1 { animation-delay: 90ms; }
-.hero-lede { animation-delay: 180ms; }
 .hero-actions { animation-delay: 260ms; }
-.signal-strip { animation-delay: 340ms; }
 .hero-visual { animation-delay: 180ms; animation-name: enter-visual; }
 
 @keyframes enter {
@@ -1104,7 +969,6 @@ a.project-card:focus-visible {
   .hero { padding-top: 125px; gap: 20px; }
   .hero h1 { margin: 25px 0 30px; font-size: clamp(4rem, 22vw, 6rem); }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .signal-strip { flex-wrap: wrap; margin-top: 40px; }
   .scroll-cue { display: none; }
   .hero-visual { width: 106%; margin-left: -3%; }
   .status-card { right: 0; bottom: 11%; transform: scale(0.9); transform-origin: right bottom; }
@@ -1121,8 +985,6 @@ a.project-card:focus-visible {
   .project-grid { display: block; }
   .project-card { min-height: 260px; margin-bottom: 12px; }
   .project-card.featured { min-height: 330px; }
-  .work-note { margin-top: 45px; font-size: 0.96rem; }
-
   .thinking-grid { gap: 50px; }
   .thinking-section::before { width: 440px; }
 
