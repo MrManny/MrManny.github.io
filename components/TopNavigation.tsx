@@ -35,11 +35,11 @@ export default function TopNavigation() {
       </a>
       <div className="nav-links">
         <a href="#build" aria-current={active === 'build' ? 'true' : undefined}>Work</a>
-        <a href="#teach" aria-current={active === 'teach' ? 'true' : undefined}>Thinking</a>
-        <a href="#tinker" aria-current={active === 'tinker' ? 'true' : undefined}>Off-hours</a>
+        <a href="#teach" aria-current={active === 'teach' ? 'true' : undefined}>Practices</a>
+        <a href="#tinker" aria-current={active === 'tinker' ? 'true' : undefined}>Side quests</a>
       </div>
       <a className="nav-contact" href="#connect" aria-current={active === 'connect' ? 'true' : undefined}>
-        Connect <span>↗</span>
+        Summon me <span>↗</span>
       </a>
     </nav>
   );

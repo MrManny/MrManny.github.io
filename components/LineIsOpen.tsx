@@ -25,33 +25,25 @@ export default function LineIsOpen() {
   return (
     <section className="connect-section" id="connect">
       <div className="connect-orbit" aria-hidden="true" />
-      <div className="shell connect-inner">
-        <p className="eyebrow">
-          <span /> The line is open
-        </p>
+      <div className="section-heading">
         <h2>
-          Let&apos;s build what&apos;s<br />
-          <em>not obvious yet.</em>
+          <em>#</em>summoning
         </h2>
-        <p className="connect-intro">
-          I&apos;m always interested in conversations about AI product leadership, platform
-          engineering, and the future of developer tooling.
-        </p>
-        <div className="social-grid">
-          {socialLinks.map((link) => (
-            <a href={link.href} key={link.name} target="_blank" rel="noopener noreferrer">
-              <span>{link.name}</span>
-              <small>{link.description}</small>
-              <b aria-hidden="true">↗</b>
-              <span className="visually-hidden">(opens in new tab)</span>
-            </a>
-          ))}
-        </div>
-        <div className="language-line">
-          <span>German — native</span>
-          <span>English — fluent</span>
-          <span>Klagenfurt, Austria — CET</span>
-        </div>
+      </div>
+      <div className="social-grid">
+        {socialLinks.map((link) => (
+          <a href={link.href} key={link.name} target="_blank" rel="noopener noreferrer">
+            <span>{link.name}</span>
+            <small>{link.description}</small>
+            <b aria-hidden="true">↗</b>
+            <span className="visually-hidden">(opens in new tab)</span>
+          </a>
+        ))}
+      </div>
+      <div className="language-line">
+        <span>German — native</span>
+        <span>English — fluent</span>
+        <span>Klagenfurt, Austria</span>
       </div>
     </section>
   );

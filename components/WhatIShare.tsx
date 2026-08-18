@@ -2,7 +2,6 @@ const topics = [
   'Agentic systems',
   'AI enablement',
   'Monte Carlo',
-  'Product strategy',
   'Forecasting',
 ];
 
@@ -11,18 +10,13 @@ export default function WhatIShare() {
     <section className="thinking-section" id="teach">
       <div className="shell thinking-grid">
         <div className="section-heading compact">
-          <div>
-            <span className="section-number">#02</span>
-            <p className="eyebrow">What I share</p>
-          </div>
           <h2>
-            Turning early signals<br />
-            into <em>useful practice.</em>
+            <em>#</em>practices
           </h2>
         </div>
         <div className="thinking-copy">
-          <p className="display-quote">
-            I was working with generative AI before it had a marketing budget.
+          <p>
+            I was working with generative AI before it was cool.
           </p>
           <p>
             I use that head start to help colleagues make day-to-day operations more efficient and
@@ -31,6 +25,9 @@ export default function WhatIShare() {
           <p>
             I also bring a background in agile processes and forecasting, using Monte Carlo methods
             to turn delivery uncertainty into decisions teams can act on.
+          </p>
+          <p>
+            I also worked in quantum cryptography once. That was fun.
           </p>
           <div className="topic-cloud">
             {topics.map((topic) => (

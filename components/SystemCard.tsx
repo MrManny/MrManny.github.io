@@ -1,20 +1,14 @@
 export type SystemCardProps = {
-  number: string;
   title: string;
-  tag: string;
   description: string;
-  meta?: string;
   href?: string;
   featured?: boolean;
   old?: boolean;
 };
 
 export default function SystemCard({
-  number,
   title,
-  tag,
   description,
-  meta,
   href,
   featured = false,
   old = false,
@@ -25,16 +19,11 @@ export default function SystemCard({
   const content = (
     <>
       <div className="card-top">
-        {old ? <span className="card-status">Archive</span> : null}
-        {tag}
-      </div>
-      <div className="card-mark" aria-hidden="true">
-        {number}
+        {old ? <span className="card-status">previous</span> : null}
       </div>
       <div className="card-copy">
         <h3>{title}</h3>
         <p>{description}</p>
-        {meta ? <div className="card-meta">{meta}</div> : null}
       </div>
       {href ? (
         <span className="card-arrow" aria-hidden="true">

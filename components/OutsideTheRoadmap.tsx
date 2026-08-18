@@ -21,7 +21,7 @@ const interests: Interest[] = [
   {
     title: 'Generative AI',
     description:
-      'LLMs, harness engineering, and reliable agentic workflows. Also with a strong interest in diffusion-based open-weight models.',
+      'I like pushing locally runnable open-weights models to their limits. It also keeps me warm in winter.',
     icon: (
       <svg {...iconProps}>
         <path d="M12 3l1.9 5.4L19.5 10l-5.6 1.6L12 17l-1.9-5.4L4.5 10l5.6-1.6L12 3z" />
@@ -32,7 +32,7 @@ const interests: Interest[] = [
   {
     title: '3D Printing + CAD',
     description:
-      'Designing and printing parts. Sometimes they even fit together (but only sometimes).',
+      'Designing and printing parts. Sometimes they even fit together somehow.',
     icon: (
       <svg {...iconProps}>
         <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
@@ -41,9 +41,9 @@ const interests: Interest[] = [
     ),
   },
   {
-    title: 'Cartography + GIS',
+    title: 'GIS',
     description:
-      'Contributing to OpenStreetMap, often while walking the dog or flying my DJI drone.',
+      'Contributing to OpenStreetMap, often while walking the dog or flying a DJI drone. Yes, I am a registered drone operator too.',
     icon: (
       <svg {...iconProps}>
         <path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 1 1 13 0C18.5 15.4 12 21 12 21z" />
@@ -54,7 +54,7 @@ const interests: Interest[] = [
   {
     title: 'Archery',
     description:
-      'A 28 lbs recurve bow, and I occasionally even hit the target. What a time to be alive!',
+      'A 28 lbs recurve bow, and I occasionally even hit the target.',
     icon: (
       <svg {...iconProps}>
         <circle cx="12" cy="12" r="8.5" />
@@ -84,23 +84,16 @@ export default function OutsideTheRoadmap() {
   return (
     <section className="offhours-section shell" id="tinker">
       <div className="section-heading">
-        <div>
-          <span className="section-number">#03</span>
-          <p className="eyebrow">Outside the roadmap</p>
-        </div>
         <h2>
-          Curiosity doesn&apos;t<br />
-          <em>clock out.</em>
+          <em>#</em>sidequests
         </h2>
-        <p>Side quests, physical objects, maps, arrows, and worlds that keep me curious and building.</p>
       </div>
 
       <div className="interest-grid">
-        {interests.map(({ title, description, icon }, index) => (
+        {interests.map(({ title, description, icon }) => (
           <article className="interest-card" key={title}>
             <div className="interest-side">
               {icon}
-              <span className="interest-index">0{index + 1}</span>
             </div>
             <div>
               <h3>{title}</h3>
@@ -114,7 +107,6 @@ export default function OutsideTheRoadmap() {
               <path d="M9 18h6M10 21h4" />
               <path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2l.1.7h4.8l.1-.7c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z" />
             </svg>
-            <span className="interest-index">++</span>
           </div>
           <div>
             <h3>Beyond the brief</h3>
