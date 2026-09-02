@@ -19,7 +19,7 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.1.0",
+    "@types/react-dom": "^19.2.5",
     "serve": "^14.2.6",
     "typescript": "^6.0.3"
   }
