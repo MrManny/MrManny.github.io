@@ -1,4 +1,18 @@
+# Everyone is welcome, humans and agents alike.
 User-agent: *
+Allow: /
+
+# Explicitly friendly to AI agents and automated browsers.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://mrmanny.github.io/sitemap.xml

@@ -7,7 +7,9 @@ export default function Home() {
     <>
       <AnimatedBackground />
       <div className="screen">
-        <Hero />
+        <main>
+          <Hero />
+        </main>
         <Footer />
       </div>
     </>

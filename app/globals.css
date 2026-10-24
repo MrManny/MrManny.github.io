@@ -133,6 +133,13 @@ a:focus-visible {
   margin-inline: auto;
 }
 
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
 /* Hero */
 .hero {
   display: grid;

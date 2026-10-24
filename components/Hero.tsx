@@ -38,9 +38,9 @@ export default function Hero() {
       </div>
 
       <div className="hero-visual">
-        <div className="orbit orbit-outer" />
-        <div className="orbit orbit-inner" />
-        <div className="portrait-glow" />
+        <div className="orbit orbit-outer" aria-hidden="true" />
+        <div className="orbit orbit-inner" aria-hidden="true" />
+        <div className="portrait-glow" aria-hidden="true" />
         <div className="portrait-frame">
           <ProfilePhoto />
         </div>
