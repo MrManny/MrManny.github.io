@@ -3,7 +3,7 @@ import ProfilePhoto from './ProfilePhoto';
 const facts = [
   {
     label: 'work',
-    text: 'IT industry by trade. I build AI-assisted software engineering — the whole AIDLC, from first prompt to shipped code.',
+    text: 'IT industry by trade. AI-assisted software engineering, the whole AIDLC.',
   },
   {
     label: 'radar',
@@ -21,9 +21,9 @@ export default function Hero() {
       <div className="hero-copy">
         <h1>
           <span>Manuel</span>
-          <em>Warum.</em>
+          <em>Warum</em>
         </h1>
-        <p className="tagline">AI. Platforms. Shenanigans.</p>
+        <p className="tagline">AI. Engineering. Shenanigans.</p>
         <ul className="fact-list">
           {facts.map((fact) => (
             <li key={fact.label}>
