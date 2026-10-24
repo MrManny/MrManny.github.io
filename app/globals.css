@@ -219,16 +219,31 @@ main {
   width: min(100%, 46vh, 520px);
   aspect-ratio: 1;
   justify-self: center;
-  overflow: clip; /* rotating orbit boxes must never create page overflow */
+}
+
+/* Rotating orbit boxes must never create page overflow — but the clip lives
+   here so the portrait glow can fade out naturally instead of being cut off. */
+.orbit-stage {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
 }
 
 .portrait-glow {
   position: absolute;
-  inset: 14%;
-  border-radius: 50%;
-  background: var(--color-accent);
-  opacity: 0.24;
-  filter: blur(65px);
+  inset: 0;
+  /* Radial gradient reaching exactly 0 alpha at the box edge: the glow can
+     never meet a clip boundary (window edge, .screen) with visible brightness,
+     so it can never look cut off. */
+  background: radial-gradient(
+    circle closest-side,
+    rgba(25, 102, 255, 0.62),
+    rgba(25, 102, 255, 0.38) 45%,
+    rgba(25, 102, 255, 0.17) 68%,
+    rgba(25, 102, 255, 0.05) 85%,
+    rgba(25, 102, 255, 0) 100%
+  );
+  opacity: 0.8;
   animation: glow-pulse 5s ease-in-out infinite alternate;
 }
 
@@ -290,7 +305,7 @@ main {
 .orbit-inner { inset: 10%; border-style: dashed; animation: orbit-spin 22s linear infinite reverse; }
 
 @keyframes orbit-spin { to { transform: rotate(360deg); } }
-@keyframes glow-pulse { to { opacity: 0.4; transform: scale(1.12); } }
+@keyframes glow-pulse { to { opacity: 1; } }
 
 /* Footer */
 .site-footer {
