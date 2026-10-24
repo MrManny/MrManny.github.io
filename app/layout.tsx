@@ -31,30 +31,23 @@ const jsonLd = {
     name: 'Manuel Warum',
     alternateName: 'Mr. Manny',
     url: SITE_URL,
-    image: `${SITE_URL}/img/profile.png`,
-    jobTitle:
-      'Senior Software Engineer, Product Owner, Research Engineer, Generative AI Champion',
+    image: `${SITE_URL}/img/profile.webp`,
+    jobTitle: 'IT Professional, AI-Assisted Software Engineering',
     worksFor: {
       '@type': 'Organization',
       name: 'Dynatrace',
       url: 'https://www.dynatrace.com/',
     },
     description:
-      'AI product leader specializing in platform integrations, DevOps automation, and generative AI. Experienced in shipping AI-driven products at scale including MCP servers, CI/CD connectors, and site reliability tools.',
+      'Works in the IT industry on AI-assisted software engineering (AIDLC), follows technological developments, and contributes to open data such as OpenStreetMap.',
     knowsAbout: [
+      'Information Technology',
       'Artificial Intelligence',
-      'Generative AI',
-      'Large Language Models',
-      'AI Agent Development',
-      'Predictability',
-      'Product Management',
-      'DevOps',
-      'Site Reliability Engineering',
-      'Platform Engineering',
-      'Model Context Protocol (MCP)',
-      'CI/CD Pipeline Integrations',
-      'Agile Product Ownership',
-      '3D Printing',
+      'AI-Assisted Software Engineering',
+      'AI Development Life Cycle (AIDLC)',
+      'Technological Developments',
+      'Open Data',
+      'OpenStreetMap',
       'Geographic Information Systems',
     ],
     sameAs: [
@@ -72,27 +65,27 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Manuel Warum — Senior Software Engineer and AI Champion',
+  title: 'Manuel Warum — IT and AI-Assisted Software Engineering',
   description:
-    'Manuel Warum builds products at the intersection of AI, DevOps, and platform engineering. At Dynatrace, he leads product execution for AI-powered integrations and observability-driven workflows.',
+    'Manuel Warum works in the IT industry on AI-assisted software engineering (AIDLC), follows technological developments, and contributes to open data such as OpenStreetMap.',
   authors: [{ name: 'Manuel Warum', url: SITE_URL }],
   openGraph: {
     type: 'profile',
-    title: 'Manuel Warum — Senior Software Engineer and AI Champion',
+    title: 'Manuel Warum — IT and AI-Assisted Software Engineering',
     description:
-      'Manuel Warum builds products at the intersection of AI, DevOps, and platform engineering.',
+      'Manuel Warum works in the IT industry on AI-assisted software engineering (AIDLC), follows technological developments, and contributes to open data such as OpenStreetMap.',
     url: SITE_URL,
     siteName: 'Manuel Warum',
-    images: [{ url: '/img/profile.png', width: 400, height: 400, alt: 'Manuel Warum' }],
+    images: [{ url: '/img/profile.webp', width: 420, height: 420, alt: 'Manuel Warum' }],
     firstName: 'Manuel',
     lastName: 'Warum',
   },
   twitter: {
     card: 'summary',
-    title: 'Manuel Warum — Senior Software Engineer and AI Champion',
+    title: 'Manuel Warum — IT and AI-Assisted Software Engineering',
     description:
-      'Manuel Warum builds products at the intersection of AI, DevOps, and platform engineering.',
-    images: ['/img/profile.png'],
+      'Manuel Warum works in the IT industry on AI-assisted software engineering (AIDLC), follows technological developments, and contributes to open data such as OpenStreetMap.',
+    images: ['/img/profile.webp'],
   },
   robots: {
     index: true,

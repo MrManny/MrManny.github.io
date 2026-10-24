@@ -1,6 +1,19 @@
 import ProfilePhoto from './ProfilePhoto';
-import ScrollCue from './ScrollCue';
-import StatusCard from './StatusCard';
+
+const facts = [
+  {
+    label: 'work',
+    text: 'IT industry by trade. I build AI-assisted software engineering — the whole AIDLC, from first prompt to shipped code.',
+  },
+  {
+    label: 'radar',
+    text: 'I follow technological developments closely. Someone has to.',
+  },
+  {
+    label: 'opendata',
+    text: 'I give back to open data, mostly OpenStreetMap.',
+  },
+];
 
 export default function Hero() {
   return (
@@ -10,10 +23,18 @@ export default function Hero() {
           <span>Manuel</span>
           <em>Warum.</em>
         </h1>
-        <div className="hero-actions">
-          <a className="button button-primary" href="#build">Explore my work</a>
-          <a className="button button-ghost" href="#connect">Start a conversation</a>
-        </div>
+        <p className="tagline">AI. Platforms. Shenanigans.</p>
+        <ul className="fact-list">
+          {facts.map((fact) => (
+            <li key={fact.label}>
+              <span className="fact-label">
+                <em>#</em>
+                {fact.label}
+              </span>
+              <p>{fact.text}</p>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="hero-visual">
@@ -23,10 +44,7 @@ export default function Hero() {
         <div className="portrait-frame">
           <ProfilePhoto />
         </div>
-        <StatusCard />
       </div>
-
-      <ScrollCue />
     </header>
   );
 }
