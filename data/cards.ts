@@ -12,7 +12,8 @@ export const mockCards: MtgCardData[] = [
       src: '/img/aidlc.webp',
     },
     typeLine: 'Legendary Creature — Artificer Wizard',
-    description: 'Research and Software Engineer working to solve modern problems with modern solutions.',
+    description:
+      'When AI Software Engineer enters, name a modern problem.\nWhenever you cast an artifact spell, conjure a modern solution, then draw a card.',
     fluffText:
       '“Any sufficiently refined craft is indistinguishable from magic. Any sufficiently documented magic is merely good engineering.”',
     accent: '#315568',
@@ -29,7 +30,8 @@ export const mockCards: MtgCardData[] = [
       src: '/img/irl.webp',
     },
     typeLine: 'Instant',
-    description: 'Board/card/video game aficionado, aspiring archer, and builder with bravado.',
+    description:
+      'Choose one —\n• Target creature gets +1/+1 for each board game he has mastered;\n• Create a 1/1 Archer creature token with reach.',
     fluffText:
       '“The bow cost less than his tabletop army. It has won far more games.”',
     accent: '#885344',
@@ -46,7 +48,8 @@ export const mockCards: MtgCardData[] = [
       src: '/img/gis.webp',
     },
     typeLine: 'Enchantment — Saga',
-    description: 'Drone operator and open data contributor, in particular to OpenStreetMap since 2015.',
+    description:
+      'I — Launch a drone: create a Drone token with flying.\nII — Chart the battlefield; no path goes unrecorded.\nIII — Each land is mapped. Open the data to every player.',
     fluffText:
       '“Some enchant the land to hold it. He enchants it to be found.”',
     accent: '#4c6552',
