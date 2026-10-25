@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import ArtEchoBackdrop from '@/components/backgrounds/ArtEchoBackdrop';
+import MotesBackdrop from '@/components/backgrounds/MotesBackdrop';
 import MtgCardStack from '@/components/MtgCardStack';
 import { mockCards } from '@/data/cards';
 import styles from './page.module.css';
@@ -13,6 +15,8 @@ export default function Home() {
 
   return (
     <main className={styles.stage}>
+      <ArtEchoBackdrop cards={mockCards} index={index} />
+      <MotesBackdrop />
       <MtgCardStack
         cards={mockCards}
         index={index}
