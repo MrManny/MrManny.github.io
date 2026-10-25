@@ -49,7 +49,7 @@ export const mockCards: MtgCardData[] = [
     },
     typeLine: 'Enchantment — Saga',
     description:
-      'I — Launch a drone: create a Drone token with flying.\nII — Chart the battlefield; no path goes unrecorded.\nIII — Each land is mapped. Open the data to every player.',
+      'I — Launch a drone: create a Drone token with flying.\nII — Chart the lands; no path goes unrecorded.\nIII — Each land is mapped. Open the data to every player.',
     fluffText:
       '“Some enchant the land to hold it. He enchants it to be found.”',
     accent: '#4c6552',
