@@ -20,9 +20,39 @@ export type MtgCardData = {
 };
 
 export type MtgCardProps = MtgCardData & {
+  // 1-based position in the deck and the deck size, shown as the collector
+  // line ("3/7") at the bottom of the card.
+  ordinal: number;
+  total: number;
   onPrev?: () => void;
   onNext?: () => void;
 };
+
+/**
+ * Directional chevron, deliberately drawn (not a font glyph) at a heavy,
+ * visible weight. It carries no button box: the "engraved into the frame"
+ * relief and the hover response live in the `.chevron` / `.flip` CSS.
+ */
+function Chevron({ dir }: { dir: 'prev' | 'next' }) {
+  return (
+    <svg
+      className={styles.chevron}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {dir === 'prev' ? (
+        <path d="M15.5 4.5 L8 12 L15.5 19.5" />
+      ) : (
+        <path d="M8.5 4.5 L16 12 L8.5 19.5" />
+      )}
+    </svg>
+  );
+}
 
 export default function MtgCard({
   title,
@@ -31,6 +61,8 @@ export default function MtgCard({
   description,
   fluffText,
   accent,
+  ordinal,
+  total,
   onPrev,
   onNext,
 }: MtgCardProps) {
@@ -68,21 +100,33 @@ export default function MtgCard({
           <button
             type="button"
             className={styles.flip}
+            data-flip="prev"
             onClick={onPrev}
             disabled={!onPrev}
             aria-label="Previous card"
           >
-            ‹
+            <Chevron dir="prev" />
           </button>
-          <span className={styles.barSpacer} aria-hidden="true" />
+
+          {/* Collector line, echoing the bottom strip of a real Magic card
+              (collector number over the artist rule). Decorative for
+              assistive tech: the stack announces the position instead. */}
+          <div className={styles.collector} aria-hidden="true">
+            <span className={styles.counter}>
+              {ordinal}/{total}
+            </span>
+            <span className={styles.leader} />
+          </div>
+
           <button
             type="button"
             className={styles.flip}
+            data-flip="next"
             onClick={onNext}
             disabled={!onNext}
             aria-label="Next card"
           >
-            ›
+            <Chevron dir="next" />
           </button>
         </nav>
       </div>

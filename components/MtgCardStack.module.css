@@ -89,6 +89,47 @@
   outline-offset: -6px;
 }
 
+/* Hovering (or keyboard-focusing) a flip chevron fans its neighbour further
+   out and tilts it: the preview shows where pressing will go, which is what
+   makes the container-less chevrons read as interactive. The selectors reach
+   the chevron buttons inside MtgCard through their data-flip attributes. */
+@media (prefers-reduced-motion: no-preference) {
+  .stack:has([data-flip='prev']:hover) .slotLeft,
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft {
+    transform: translateX(-13%) rotate(-2.4deg) scale(0.93);
+    transition-duration: 260ms, 320ms;
+  }
+
+  .stack:has([data-flip='next']:hover) .slotRight,
+  .stack:has([data-flip='next']:focus-visible) .slotRight {
+    transform: translateX(13%) rotate(2.4deg) scale(0.93);
+    transition-duration: 260ms, 320ms;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 900px) and (min-aspect-ratio: 7 / 6) {
+  .stack:has([data-flip='prev']:hover) .slotLeft,
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft {
+    transform: translateX(-25%) rotate(-2.4deg) scale(0.93);
+  }
+
+  .stack:has([data-flip='next']:hover) .slotRight,
+  .stack:has([data-flip='next']:focus-visible) .slotRight {
+    transform: translateX(25%) rotate(2.4deg) scale(0.93);
+  }
+}
+
+/* Screen-reader announcement of the deck position ("Card 1 of 3 — …");
+   the visible collector line on the card is decorative. */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .slot {
     transition: none;

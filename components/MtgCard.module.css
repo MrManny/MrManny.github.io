@@ -156,46 +156,84 @@
   background: rgba(27, 22, 16, 0.4);
 }
 
-/* Flip bar: prev / flexible middle / next */
+/* Flip bar: two engraved chevrons with the collector line between them,
+   echoing the bottom strip of a real Magic card (collector number, rarity
+   mark, artist rule). Every mark here is carved into the accent frame in
+   bone ink — cream strokes with a 1px dark lip below (light comes from
+   above) — so the controls read as ornament pressed into the frame rather
+   than buttons pasted onto it. */
 .bar {
   grid-area: bar;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5cqw;
-}
-
-.barSpacer {
-  flex: 1;
+  gap: max(1.6cqw, 6px);
 }
 
 .flip {
+  position: relative;
   display: grid;
   place-items: center;
-  width: max(6.2cqw, 30px);
-  height: max(4.8cqw, 24px);
+  width: max(9cqw, 40px);
+  height: max(7.5cqw, 32px);
   padding: 0;
-  border: var(--panel-border) solid var(--panel-edge);
-  border-radius: 1.4cqw;
-  background: var(--panel-bg);
-  color: var(--panel-text);
-  font-family: inherit;
-  font-size: max(3.4cqw, 12px);
-  line-height: 1;
+  border: 0;
+  border-radius: 1cqw;
+  background: transparent;
+  color: rgba(242, 236, 219, 0.95);
   cursor: pointer;
   transition:
-    background 120ms ease,
-    transform 120ms ease;
+    color 140ms ease,
+    transform 140ms ease,
+    filter 140ms ease;
 }
 
+/* Invisible hit padding: the drawn chevron stays delicate while the button
+   keeps a >=44px target in both directions. */
+.flip::before {
+  content: '';
+  position: absolute;
+  inset: min(-1.5cqw, -7px);
+}
+
+.chevron {
+  width: max(5.6cqw, 22px);
+  height: auto;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55));
+}
+
+/* The hover response replaces the button box as the "this is interactive"
+   signal: the mark brightens, its engraving lifts (the dark lip grows), and
+   it steps in its own direction. */
 .flip:hover:not(:disabled) {
-  background: #fffdf6;
-  transform: translateY(-0.2cqw);
+  color: #fffdf6;
+}
+
+.flip[data-flip='prev']:hover:not(:disabled) {
+  transform: translateX(-2px);
+}
+
+.flip[data-flip='next']:hover:not(:disabled) {
+  transform: translateX(2px);
+}
+
+.flip:hover:not(:disabled) .chevron {
+  filter:
+    drop-shadow(0 2px 0 rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 6px rgba(242, 236, 219, 0.35));
+}
+
+/* Pressing flattens the lip and sinks the mark into the frame. */
+.flip:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.flip:active:not(:disabled) .chevron {
+  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.55));
 }
 
 .flip:focus-visible {
   outline: max(0.35cqw, 2px) solid #f2ecdb;
-  outline-offset: 0.3cqw;
+  outline-offset: max(0.2cqw, 2px);
 }
 
 .flip:disabled {
@@ -203,8 +241,44 @@
   cursor: default;
 }
 
+/* Collector line: card number, then a hairline rule that runs on to the
+   next chevron — the rule is what keeps the number reading as an info strip
+   instead of a label for the‹ button. */
+.collector {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: max(1.2cqw, 5px);
+  min-width: 0;
+  padding-left: max(1cqw, 4px);
+}
+
+.counter {
+  color: rgba(242, 236, 219, 0.95);
+  font-size: max(2.9cqw, 11px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+}
+
+.leader {
+  flex: 1;
+  min-width: 2cqw;
+  height: max(0.3cqw, 1.5px);
+  border-radius: 1cqw;
+  background: rgba(242, 236, 219, 0.28);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .frame {
+    transition: none;
+  }
+
+  .flip {
     transition: none;
   }
 }

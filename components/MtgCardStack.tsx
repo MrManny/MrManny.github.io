@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import MtgCard, { type MtgCardData } from './MtgCard';
 import styles from './MtgCardStack.module.css';
@@ -44,6 +44,25 @@ export default function MtgCardStack({ cards, index, onPrev, onNext }: MtgCardSt
     return d > count / 2 ? d - count : d;
   };
 
+  // Arrow keys flip the deck for keyboard users. Modifier chords and text
+  // fields are left alone so they keep their native behaviour.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      const tag = (e.target as HTMLElement | null)?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        onPrev?.();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        onNext?.();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onPrev, onNext]);
+
   // Touch swipe: horizontal drags flip the deck. Vertical drags are left
   // alone (touch-action: pan-y) so the fluff panel still scrolls.
   const handlePointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
@@ -76,6 +95,12 @@ export default function MtgCardStack({ cards, index, onPrev, onNext }: MtgCardSt
       onPointerUp={endGesture}
       onPointerCancel={endGesture}
     >
+      {/* Screen-reader position announcement; the visible collector line on
+          each card is decorative. */}
+      <p className={styles.status} role="status">
+        {`Card ${index + 1} of ${count} — ${cards[index]?.title ?? ''}`}
+      </p>
+
       {cards.map((card, i) => {
         const rel = relOf(i);
         const slot = slotFor(rel);
@@ -91,6 +116,8 @@ export default function MtgCardStack({ cards, index, onPrev, onNext }: MtgCardSt
             >
               <MtgCard
                 {...card}
+                ordinal={i + 1}
+                total={count}
                 onPrev={slot === 'active' ? onPrev : undefined}
                 onNext={slot === 'active' ? onNext : undefined}
               />
