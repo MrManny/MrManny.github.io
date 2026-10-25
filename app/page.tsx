@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import MtgCard from '@/components/MtgCard';
+import MtgCardStack from '@/components/MtgCardStack';
 import { mockCards } from '@/data/cards';
 import styles from './page.module.css';
 
@@ -13,8 +13,9 @@ export default function Home() {
 
   return (
     <main className={styles.stage}>
-      <MtgCard
-        {...mockCards[index]}
+      <MtgCardStack
+        cards={mockCards}
+        index={index}
         onPrev={() => step(-1)}
         onNext={() => step(1)}
       />
