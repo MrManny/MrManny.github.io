@@ -39,4 +39,25 @@ export const mockCards: MtgCardData[] = [
       '“Some enchant the land to hold it. He enchants it to be found.”',
     accent: '#2f6b43',
   },
+  {
+    title: 'Speak, Friend, and Enter',
+    image: {
+      src: '/img/contact.webp',
+    },
+    typeLine: 'Sorcery',
+    // The description is the card: modal rules text whose platform names are
+    // hyperlinks (rendered with target=_blank by MtgCard).
+    description: [
+      'Choose one —\n• Follow his work on ',
+      { text: 'GitHub', href: 'https://github.com/MrManny' },
+      ';\n• Connect with him on ',
+      { text: 'LinkedIn', href: 'https://www.linkedin.com/in/manuel-w-a54850235' },
+      '.',
+    ],
+    fluffText:
+      '“Every great adventuring party began with a single message. Most even got a reply.”',
+    // Off-white frame, emulating the White of Magic. Light enough that the
+    // frame ink flips to dark automatically (see MtgCard.tsx).
+    accent: '#ece3c6',
+  },
 ];

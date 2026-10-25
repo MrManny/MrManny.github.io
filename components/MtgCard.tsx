@@ -14,10 +14,34 @@ export type MtgCardData = {
   // Art is purely decorative, so no alt text is carried or rendered.
   image: { src: string };
   typeLine: string;
-  description: string;
-  fluffText: string;
+  // Description copy, either plain or with hyperlink segments woven in.
+  // Link segments render as anchors that open in a new tab.
+  description: string | DescriptionSegment[];
+  // Optional: some cards (e.g. the contact card) carry rules text only.
+  fluffText?: string;
   accent?: string;
 };
+
+export type DescriptionSegment = string | { text: string; href: string };
+
+// Default frame accent, mirroring the --card-accent default in
+// MtgCard.module.css. Used when a card carries no accent of its own.
+const DEFAULT_ACCENT = '#2f6b43';
+
+/**
+ * Perceived luminance of a #rgb / #rrggbb color, 0 (black) … 1 (white).
+ * Used to flip the engraved frame ink to dark on light accents — bone-cream
+ * chevrons and collector numbers would vanish on an off-white frame.
+ */
+function luminance(hex: string): number {
+  const raw = hex.replace('#', '');
+  const full = raw.length === 3 ? raw.replace(/./g, (c) => c + c) : raw;
+  const channel = (start: number) => {
+    const v = Number.parseInt(full.slice(start, start + 2), 16) / 255;
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+  };
+  return 0.2126 * channel(0) + 0.7152 * channel(2) + 0.0722 * channel(4);
+}
 
 export type MtgCardProps = MtgCardData & {
   // 1-based position in the deck and the deck size, shown as the collector
@@ -66,10 +90,27 @@ export default function MtgCard({
   onPrev,
   onNext,
 }: MtgCardProps) {
+  const accentColor = accent ?? DEFAULT_ACCENT;
+  // Frame engraving ink: bone cream with a dark lip on the dark accents,
+  // mirrored to dark ink with a light lip on light (off-white) frames.
+  const ink =
+    luminance(accentColor) > 0.45
+      ? { ink: '27, 22, 16', lip: '255, 255, 255', bright: '#000000' }
+      : { ink: '242, 236, 219', lip: '0, 0, 0', bright: '#fffdf6' };
+  const descriptionParts: DescriptionSegment[] =
+    typeof description === 'string' ? [description] : description;
+
   return (
     <article
       className={styles.card}
-      style={accent ? ({ '--card-accent': accent } as CSSProperties) : undefined}
+      style={
+        {
+          '--card-accent': accentColor,
+          '--card-ink-rgb': ink.ink,
+          '--card-ink-lip-rgb': ink.lip,
+          '--card-ink-bright': ink.bright,
+        } as CSSProperties
+      }
     >
       <div className={styles.frame}>
         <header className={styles.titleBar}>
@@ -92,8 +133,19 @@ export default function MtgCard({
         </div>
 
         <section className={styles.fluff}>
-          <p className={styles.description}>{description}</p>
-          <p className={styles.fluffText}>{fluffText}</p>
+          <p className={styles.description}>
+            {descriptionParts.map((part, i) =>
+              typeof part === 'string' ? (
+                part
+              ) : (
+                // Contact links: a new tab, and no opener leakage.
+                <a key={i} href={part.href} target="_blank" rel="noopener noreferrer">
+                  {part.text}
+                </a>
+              ),
+            )}
+          </p>
+          {fluffText && <p className={styles.fluffText}>{fluffText}</p>}
         </section>
 
         <nav className={styles.bar} aria-label="Card flip">

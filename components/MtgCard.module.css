@@ -8,6 +8,13 @@
 
 .card {
   --card-accent: #2f6b43;
+  /* Engraved frame ink, as RGB triplets so any alpha can be derived from
+     them. Bone cream with a dark lip on the dark accents; mirrored to dark
+     ink with a light lip on light (off-white) frames — all three are
+     overridden from MtgCard.tsx based on the accent's luminance. */
+  --card-ink-rgb: 242, 236, 219;
+  --card-ink-lip-rgb: 0, 0, 0;
+  --card-ink-bright: #fffdf6;
 
   container-type: size;
   width: min(100%, calc(100cqh * 2.5 / 3.5));
@@ -139,6 +146,29 @@
   white-space: pre-line;
 }
 
+/* Cards without fluff text: no trailing gap below the description. */
+.description:last-child {
+  margin-bottom: 0;
+}
+
+/* Hyperlinks woven into the description (the contact card): deep blue and
+   underlined so they read as links at a glance on the cream panel. */
+.description a {
+  color: #20458c;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.description a:hover {
+  color: #16336b;
+}
+
+.description a:focus-visible {
+  outline: max(0.35cqw, 2px) solid #20458c;
+  outline-offset: max(0.2cqw, 2px);
+}
+
 .fluffText {
   color: var(--panel-text);
   font-size: max(3cqw, 12px);
@@ -179,7 +209,7 @@
   border: 0;
   border-radius: 1cqw;
   background: transparent;
-  color: rgba(242, 236, 219, 0.95);
+  color: rgba(var(--card-ink-rgb), 0.95);
   cursor: pointer;
   transition:
     color 140ms ease,
@@ -198,14 +228,14 @@
 .chevron {
   width: max(5.6cqw, 22px);
   height: auto;
-  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 1px 0 rgba(var(--card-ink-lip-rgb), 0.55));
 }
 
 /* The hover response replaces the button box as the "this is interactive"
    signal: the mark brightens, its engraving lifts (the dark lip grows), and
    it steps in its own direction. */
 .flip:hover:not(:disabled) {
-  color: #fffdf6;
+  color: var(--card-ink-bright);
 }
 
 .flip[data-flip='prev']:hover:not(:disabled) {
@@ -218,8 +248,8 @@
 
 .flip:hover:not(:disabled) .chevron {
   filter:
-    drop-shadow(0 2px 0 rgba(0, 0, 0, 0.6))
-    drop-shadow(0 0 6px rgba(242, 236, 219, 0.35));
+    drop-shadow(0 2px 0 rgba(var(--card-ink-lip-rgb), 0.6))
+    drop-shadow(0 0 6px rgba(var(--card-ink-rgb), 0.35));
 }
 
 /* Pressing flattens the lip and sinks the mark into the frame. */
@@ -228,11 +258,11 @@
 }
 
 .flip:active:not(:disabled) .chevron {
-  filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 0 0 rgba(var(--card-ink-lip-rgb), 0.55));
 }
 
 .flip:focus-visible {
-  outline: max(0.35cqw, 2px) solid #f2ecdb;
+  outline: max(0.35cqw, 2px) solid rgb(var(--card-ink-rgb));
   outline-offset: max(0.2cqw, 2px);
 }
 
@@ -254,13 +284,13 @@
 }
 
 .counter {
-  color: rgba(242, 236, 219, 0.95);
+  color: rgba(var(--card-ink-rgb), 0.95);
   font-size: max(2.9cqw, 11px);
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
+  text-shadow: 0 1px 0 rgba(var(--card-ink-lip-rgb), 0.55);
   white-space: nowrap;
 }
 
@@ -269,8 +299,8 @@
   min-width: 2cqw;
   height: max(0.3cqw, 1.5px);
   border-radius: 1cqw;
-  background: rgba(242, 236, 219, 0.28);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+  background: rgba(var(--card-ink-rgb), 0.28);
+  box-shadow: 0 1px 0 rgba(var(--card-ink-lip-rgb), 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {
