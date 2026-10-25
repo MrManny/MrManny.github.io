@@ -49,9 +49,18 @@
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.16) 100%
   );
+  /* Drop shadow: the dark rim plus a subtle lift, tuned per slot through
+     --card-lift. The deck gives the front card the full whisper of shadow
+     (so it reads as floating above its neighbours) and flattens the
+     background cards behind it — see MtgCardStack.module.css. */
   box-shadow:
     0 0 0 0.35cqw rgba(0, 0, 0, 0.75),
-    0 2cqw 5cqw rgba(0, 0, 0, 0.5);
+    var(
+      --card-lift,
+      0 0.9cqw 2cqw rgba(0, 0, 0, 0.76),
+      0 2.4cqw 5cqw rgba(0, 0, 0, 0.44)
+    );
+  transition: box-shadow 320ms ease;
 }
 
 /* Title panel */
@@ -180,4 +189,10 @@
 .flip:disabled {
   opacity: 0.35;
   cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    transition: none;
+  }
 }

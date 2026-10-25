@@ -28,15 +28,33 @@
   transform: none;
 }
 
-/* Neighbours: 92% scale, mirrored 1.5deg slant, peeking out at the sides. */
+/* Neighbours: 92% scale, mirrored 1.5deg slant, peeking out at the sides.
+   They sit behind the front card and stay nearly flat (--card-lift), so the
+   front card's drop shadow is what visibly separates the layers. */
 .slotLeft {
+  --card-lift: 0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.44);
   z-index: 1;
   transform: translateX(-9%) rotate(-1.5deg) scale(0.92);
 }
 
 .slotRight {
+  --card-lift: 0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.44);
   z-index: 1;
   transform: translateX(9%) rotate(1.5deg) scale(0.92);
+}
+
+/* Wide screens have empty space beside the deck, so the neighbours stick out
+   further and show more of themselves. The gate needs both a wide viewport
+   and a landscape-ish aspect ratio: at portrait shapes the stack is
+   width-limited and a wider fan would run into the stage's overflow: hidden. */
+@media (min-width: 900px) and (min-aspect-ratio: 7 / 6) {
+  .slotLeft {
+    transform: translateX(-20%) rotate(-1.5deg) scale(0.92);
+  }
+
+  .slotRight {
+    transform: translateX(20%) rotate(1.5deg) scale(0.92);
+  }
 }
 
 /* Cards beyond the two neighbours stay mounted (so they animate in when

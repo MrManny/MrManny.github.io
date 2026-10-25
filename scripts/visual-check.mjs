@@ -314,6 +314,20 @@ async function run() {
       slots: s,
     };
 
+    // Wide screens fan the neighbours out further (translateX ±20% instead of
+    // ±9%), so the peek offset scales with the card width.
+    const spread = s.active && s.left ? (s.active.cx - s.left.cx) / c1.w : null;
+    const wideViewport = vp.width >= 900 && vp.width / vp.height >= 7 / 6;
+    checks.sideSpread = {
+      ok:
+        spread !== null &&
+        (wideViewport
+          ? spread >= 0.18 && spread <= 0.22
+          : spread >= 0.07 && spread <= 0.11),
+      value: spread,
+      expected: wideViewport ? 0.2 : 0.09,
+    };
+
     // Clicking a background card flips to it. The active card is the deck's
     // last one: the left catcher steps back to deck[1], the right catcher
     // (from the new arrangement) wraps to deck[2].
