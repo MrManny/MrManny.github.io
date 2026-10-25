@@ -1,0 +1,11 @@
+/* Full-viewport black stage. `container-type: size` lets the card size
+   itself against the stage's content box (see MtgCard.module.css). */
+.stage {
+  container-type: size;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100dvh;
+  padding: 2.5vmin;
+  background: #000;
+}

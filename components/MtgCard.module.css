@@ -1,0 +1,183 @@
+/* Generic Magic: the Gathering-style card.
+   The card keeps the outer aspect ratio of a real card (2.5 : 3.5) and is
+   itself a size container, so every internal metric below is expressed in
+   `cqw` (percent of card width): the rounded composition scales perfectly
+   at any screen size, in either orientation. Font sizes and key paddings
+   additionally carry px floors (max()) so the card stays readable on small
+   screens instead of shrinking text into illegibility. */
+
+.card {
+  --card-accent: #2f6b43;
+
+  container-type: size;
+  width: min(100%, calc(100cqh * 2.5 / 3.5));
+  min-width: 300px;
+  aspect-ratio: 2.5 / 3.5;
+}
+
+/* Outer frame: rounded band around the inner panels; color comes from the
+   card data via --card-accent. */
+.frame {
+  --panel-bg: #f2ecdb;
+  --panel-text: #1b1610;
+  --panel-edge: #16120c;
+  --panel-border: max(0.4cqw, 1px);
+
+  display: grid;
+  grid-template-areas:
+    'title'
+    'image'
+    'type'
+    'fluff'
+    'bar';
+  /* minmax(0, 1fr) lets the fluff track shrink and scroll instead of
+     growing with its content and pushing the bar out of the card. */
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  gap: max(1.9cqw, 6px);
+  width: 100%;
+  height: 100%;
+  padding: max(4.3cqw, 12px);
+  border-radius: 3.5cqw;
+  /* Subtle top-to-bottom gradient: accent at the top, a slightly darker
+     accent at the bottom. A transparent-to-black overlay over the flat
+     accent derives the darker end automatically and renders identically in
+     every browser (no color-mix() support needed). Tweak the end alpha to
+     make the ramp stronger or weaker. */
+  background-color: var(--card-accent);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 100%
+  );
+  box-shadow:
+    0 0 0 0.35cqw rgba(0, 0, 0, 0.75),
+    0 2cqw 5cqw rgba(0, 0, 0, 0.5);
+}
+
+/* Title panel */
+.titleBar {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  padding: max(1.4cqw, 6px) max(2.2cqw, 9px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+}
+
+.title {
+  overflow-wrap: anywhere;
+  color: var(--panel-text);
+  font-size: max(4.2cqw, 15px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Art window: 15:11, image stretches to cover the frame */
+.artWindow {
+  grid-area: image;
+  position: relative;
+  aspect-ratio: 15 / 11;
+  overflow: hidden;
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-edge);
+}
+
+.art {
+  object-fit: cover;
+}
+
+/* Type line panel */
+.typeBar {
+  grid-area: type;
+  display: flex;
+  align-items: center;
+  padding: max(1.2cqw, 5px) max(2.2cqw, 9px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+}
+
+.typeLine {
+  color: var(--panel-text);
+  font-size: max(3.3cqw, 13px);
+  line-height: 1.2;
+}
+
+/* Fluff panel: italic, takes the leftover height, scrolls when it overflows */
+.fluff {
+  grid-area: fluff;
+  min-height: 0;
+  overflow-y: auto;
+  padding: max(2cqw, 8px) max(2.4cqw, 10px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+  scrollbar-color: rgba(27, 22, 16, 0.4) transparent;
+  scrollbar-width: thin;
+}
+
+.fluffText {
+  color: var(--panel-text);
+  font-size: max(3cqw, 12px);
+  font-style: italic;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.fluff::-webkit-scrollbar {
+  width: max(0.9cqw, 5px);
+}
+
+.fluff::-webkit-scrollbar-thumb {
+  border-radius: 1cqw;
+  background: rgba(27, 22, 16, 0.4);
+}
+
+/* Flip bar: prev / flexible middle / next */
+.bar {
+  grid-area: bar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5cqw;
+}
+
+.barSpacer {
+  flex: 1;
+}
+
+.flip {
+  display: grid;
+  place-items: center;
+  width: max(6.2cqw, 30px);
+  height: max(4.8cqw, 24px);
+  padding: 0;
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.4cqw;
+  background: var(--panel-bg);
+  color: var(--panel-text);
+  font-family: inherit;
+  font-size: max(3.4cqw, 12px);
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    transform 120ms ease;
+}
+
+.flip:hover:not(:disabled) {
+  background: #fffdf6;
+  transform: translateY(-0.2cqw);
+}
+
+.flip:focus-visible {
+  outline: max(0.35cqw, 2px) solid #f2ecdb;
+  outline-offset: 0.3cqw;
+}
+
+.flip:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
