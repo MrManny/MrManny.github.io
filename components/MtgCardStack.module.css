@@ -18,8 +18,8 @@
   position: absolute;
   inset: 0;
   transition:
-    transform 460ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 320ms ease;
+    transform 800ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 800ms ease;
 }
 
 /* Active card: unchanged, front and center. */
@@ -92,29 +92,37 @@
 /* Hovering (or keyboard-focusing) a flip chevron fans its neighbour further
    out and tilts it: the preview shows where pressing will go, which is what
    makes the container-less chevrons read as interactive. The selectors reach
-   the chevron buttons inside MtgCard through their data-flip attributes. */
+   the chevron buttons inside MtgCard through their data-flip attributes.
+   The peeking neighbour is itself a big "go to this card" button (the .catch
+   below), so hovering or focusing it pops it out the same way. */
 @media (prefers-reduced-motion: no-preference) {
   .stack:has([data-flip='prev']:hover) .slotLeft,
-  .stack:has([data-flip='prev']:focus-visible) .slotLeft {
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft,
+  .slotLeft:hover,
+  .slotLeft:focus-within {
     transform: translateX(-13%) rotate(-2.4deg) scale(0.93);
-    transition-duration: 260ms, 320ms;
   }
 
   .stack:has([data-flip='next']:hover) .slotRight,
-  .stack:has([data-flip='next']:focus-visible) .slotRight {
+  .stack:has([data-flip='next']:focus-visible) .slotRight,
+  .slotRight:hover,
+  .slotRight:focus-within {
     transform: translateX(13%) rotate(2.4deg) scale(0.93);
-    transition-duration: 260ms, 320ms;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) and (min-width: 900px) and (min-aspect-ratio: 7 / 6) {
   .stack:has([data-flip='prev']:hover) .slotLeft,
-  .stack:has([data-flip='prev']:focus-visible) .slotLeft {
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft,
+  .slotLeft:hover,
+  .slotLeft:focus-within {
     transform: translateX(-25%) rotate(-2.4deg) scale(0.93);
   }
 
   .stack:has([data-flip='next']:hover) .slotRight,
-  .stack:has([data-flip='next']:focus-visible) .slotRight {
+  .stack:has([data-flip='next']:focus-visible) .slotRight,
+  .slotRight:hover,
+  .slotRight:focus-within {
     transform: translateX(25%) rotate(2.4deg) scale(0.93);
   }
 }
