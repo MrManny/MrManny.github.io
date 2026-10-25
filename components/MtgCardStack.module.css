@@ -6,7 +6,10 @@
 
 .stack {
   position: relative;
-  width: min(100%, calc(100cqh * 2.5 / 3.5));
+  /* Keep the existing viewport fit on short screens. Once there is enough
+     height, cap the card at 900px so extra space becomes breathing room
+     rather than an ever-larger card. Width-limited phones are unaffected. */
+  width: min(100%, calc(100cqh * 2.5 / 3.5), calc(900px * 2.5 / 3.5));
   min-width: 300px;
   aspect-ratio: 2.5 / 3.5;
   /* Vertical drags scroll the fluff panel; horizontal drags flip (see the
@@ -19,7 +22,8 @@
   inset: 0;
   transition:
     transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
-    opacity 350ms ease;
+    opacity 350ms ease,
+    filter 320ms ease;
 }
 
 /* Active card: unchanged, front and center. */
@@ -30,7 +34,13 @@
 
 /* Neighbours: 92% scale, mirrored 1.5deg slant, peeking out at the sides.
    They sit behind the front card and stay nearly flat (--card-lift), so the
-   front card's drop shadow is what visibly separates the layers. */
+   front card's drop shadow is what visibly separates the layers. A small
+   reduction in color and light keeps the active card visually dominant. */
+.slotLeft,
+.slotRight {
+  filter: saturate(0.8) brightness(0.9);
+}
+
 .slotLeft {
   --card-lift: 0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.44);
   z-index: 1;
@@ -169,6 +179,7 @@
     height: 88.9mm;
     transition: none;
     transform: none;
+    filter: none;
     z-index: auto;
     opacity: 1;
     visibility: visible;

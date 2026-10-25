@@ -15,7 +15,13 @@ export const mockCards: MtgCardData[] = [
     description: 'Research and Software Engineer working to solve modern problems with modern solutions.',
     fluffText:
       '“Any sufficiently refined craft is indistinguishable from magic. Any sufficiently documented magic is merely good engineering.”',
-    accent: '#2f4d8a',
+    accent: '#315568',
+    frameColors: {
+      highlight: '#547584',
+      shadow: '#1b3441',
+      panelTint: '#dee4df',
+      edge: '#25393e',
+    },
   },
   {
     title: 'Natural 20',
@@ -26,7 +32,13 @@ export const mockCards: MtgCardData[] = [
     description: 'Board/card/video game aficionado, aspiring archer, and builder with bravado.',
     fluffText:
       '“The bow cost less than his tabletop army. It has won far more games.”',
-    accent: '#8a2f2f',
+    accent: '#885344',
+    frameColors: {
+      highlight: '#a77b63',
+      shadow: '#4e302b',
+      panelTint: '#e9ddcc',
+      edge: '#46332b',
+    },
   },
   {
     title: 'Every Path Remembered',
@@ -37,7 +49,13 @@ export const mockCards: MtgCardData[] = [
     description: 'Drone operator and open data contributor, in particular to OpenStreetMap since 2015.',
     fluffText:
       '“Some enchant the land to hold it. He enchants it to be found.”',
-    accent: '#2f6b43',
+    accent: '#4c6552',
+    frameColors: {
+      highlight: '#798773',
+      shadow: '#2c4035',
+      panelTint: '#dfe4d4',
+      edge: '#303e31',
+    },
   },
   {
     title: 'Speak, Friend, and Enter',
@@ -56,8 +74,14 @@ export const mockCards: MtgCardData[] = [
     ],
     fluffText:
       '“Every great adventuring party began with a single message. Most even got a reply.”',
-    // Off-white frame, emulating the White of Magic. Light enough that the
+    // Aged ivory, emulating the White of Magic. Light enough that the
     // frame ink flips to dark automatically (see MtgCard.tsx).
-    accent: '#ece3c6',
+    accent: '#c9bc9b',
+    frameColors: {
+      highlight: '#e3d8bc',
+      shadow: '#998a6b',
+      panelTint: '#efe6d2',
+      edge: '#65583f',
+    },
   },
 ];

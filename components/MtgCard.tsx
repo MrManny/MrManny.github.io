@@ -4,10 +4,10 @@ import type { CSSProperties } from 'react';
 import Image from 'next-image-export-optimizer';
 import styles from './MtgCard.module.css';
 
-// The art window is ~91% of the card width; the card itself is capped at
-// ~95vw and at 0.714 × its height. min(86vw, 64vh) is that width in viewport
-// units, so the browser can pick the right srcset entry per device.
-const ART_SIZES = 'min(86vw, 64vh)';
+// The art window is ~91% of the card width. Match the viewport constraints
+// and the stack's 900px card-height cap (~590px of art) so the browser does
+// not download oversized variants on tall screens.
+const ART_SIZES = 'min(86vw, 64vh, 590px)';
 
 export type MtgCardData = {
   title: string;
@@ -20,13 +20,21 @@ export type MtgCardData = {
   // Optional: some cards (e.g. the contact card) carry rules text only.
   fluffText?: string;
   accent?: string;
+  // Related pigments give the frame depth and tint its labels without
+  // changing the shared parchment used for the main text panel.
+  frameColors?: {
+    highlight: string;
+    shadow: string;
+    panelTint: string;
+    edge: string;
+  };
 };
 
 export type DescriptionSegment = string | { text: string; href: string };
 
 // Default frame accent, mirroring the --card-accent default in
 // MtgCard.module.css. Used when a card carries no accent of its own.
-const DEFAULT_ACCENT = '#2f6b43';
+const DEFAULT_ACCENT = '#4c6552';
 
 /**
  * Perceived luminance of a #rgb / #rrggbb color, 0 (black) … 1 (white).
@@ -53,8 +61,8 @@ export type MtgCardProps = MtgCardData & {
 };
 
 /**
- * Directional chevron, deliberately drawn (not a font glyph) at a heavy,
- * visible weight. It carries no button box: the "engraved into the frame"
+ * Directional chevron, deliberately drawn (not a font glyph) with a fine,
+ * visible stroke. It carries no button box: the "engraved into the frame"
  * relief and the hover response live in the `.chevron` / `.flip` CSS.
  */
 function Chevron({ dir }: { dir: 'prev' | 'next' }) {
@@ -64,7 +72,7 @@ function Chevron({ dir }: { dir: 'prev' | 'next' }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="3.6"
+      strokeWidth="2.8"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -85,6 +93,7 @@ export default function MtgCard({
   description,
   fluffText,
   accent,
+  frameColors,
   ordinal,
   total,
   onPrev,
@@ -106,6 +115,10 @@ export default function MtgCard({
       style={
         {
           '--card-accent': accentColor,
+          '--card-highlight': frameColors?.highlight ?? accentColor,
+          '--card-shadow': frameColors?.shadow ?? accentColor,
+          '--card-panel-tint': frameColors?.panelTint ?? '#eee5d2',
+          '--card-panel-edge': frameColors?.edge ?? '#282a25',
           '--card-ink-rgb': ink.ink,
           '--card-ink-lip-rgb': ink.lip,
           '--card-ink-bright': ink.bright,
