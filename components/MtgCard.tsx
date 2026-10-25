@@ -1,6 +1,13 @@
 import type { CSSProperties } from 'react';
-import Image from 'next/image';
+// Drop-in next/image wrapper that serves build-time optimized WebP variants
+// (srcset) in a static export — see next.config.mjs.
+import Image from 'next-image-export-optimizer';
 import styles from './MtgCard.module.css';
+
+// The art window is ~91% of the card width; the card itself is capped at
+// ~95vw and at 0.714 × its height. min(86vw, 64vh) is that width in viewport
+// units, so the browser can pick the right srcset entry per device.
+const ART_SIZES = 'min(86vw, 64vh)';
 
 export type MtgCardData = {
   title: string;
@@ -35,7 +42,14 @@ export default function MtgCard({
         </header>
 
         <figure className={styles.artWindow}>
-          <Image className={styles.art} src={image.src} alt={image.alt} fill sizes="100vw" loading="eager" />
+          <Image
+            className={styles.art}
+            src={image.src}
+            alt={image.alt}
+            fill
+            sizes={ART_SIZES}
+            loading="eager"
+          />
         </figure>
 
         <div className={styles.typeBar}>

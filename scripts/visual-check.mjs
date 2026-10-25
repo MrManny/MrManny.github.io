@@ -146,6 +146,49 @@ async function measure(page) {
   }, SEL);
 }
 
+/** All card titles in deck order (the stack renders the deck in card order). */
+async function readDeck(page) {
+  return page.evaluate((sel) => {
+    const titles = [];
+    for (const slot of document.querySelectorAll('[data-slot]')) {
+      const title = slot.querySelector(sel.title);
+      titles.push(title ? title.textContent : null);
+    }
+    return titles;
+  }, SEL);
+}
+
+/**
+ * Probe the fluff panel's scrolling behavior with synthetic copy: short text
+ * must fit without scrolling, long text must overflow and actually scroll.
+ * Content-agnostic on purpose, so the check stays valid when the flavor text
+ * is rewritten.
+ */
+async function probeFluff(page) {
+  return page.evaluate((sel) => {
+    const root = document.querySelector('[data-slot="active"]');
+    const fluff = root?.querySelector(sel.fluff);
+    const text = fluff?.querySelector(sel.fluffText);
+    if (!fluff || !text) return null;
+    const original = text.textContent;
+    const probe = (content) => {
+      text.textContent = content;
+      return {
+        scrollH: fluff.scrollHeight,
+        clientH: fluff.clientHeight,
+        overflowing: fluff.scrollHeight > fluff.clientHeight + 1,
+      };
+    };
+    const fits = probe('Short probe text.');
+    const long = probe('Long probe text. '.repeat(120));
+    fluff.scrollTop = 99999;
+    const scrolled = fluff.scrollTop > 0;
+    text.textContent = original;
+    fluff.scrollTop = 0;
+    return { fits, long, scrolled };
+  }, SEL);
+}
+
 async function run() {
   await mkdir(OUT_DIR, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -160,10 +203,12 @@ async function run() {
     await page.evaluate(() => document.fonts.ready);
 
     const card1 = await measure(page);
+    const deck = await readDeck(page);
+    const fluffProbe = await probeFluff(page);
     await page.screenshot({ path: path.join(OUT_DIR, `card1-${vp.name}.png`) });
 
-    // Flip to card 2 (long fluff -> expect scrollbar) and card 3, then wrap.
-    // Flip buttons and titles are scoped to the active card.
+    // Flip through the whole deck: next x3 walks 1 -> 2 -> 0 (wrap), prev
+    // steps back. Flip buttons and titles are scoped to the active card.
     const active = page.locator('[data-slot="active"]');
     await active.locator(SEL.flipNext).click();
     await page.waitForTimeout(550);
@@ -224,19 +269,29 @@ async function run() {
       .map(([name]) => name);
     checks.layout = { ok: collisions.length === 0 && outside.length === 0, collisions, outside };
 
+    // Fluff scrolling is probed with synthetic copy (probeFluff) so the check
+    // stays valid when the flavor text is rewritten: short copy must fit
+    // without a scrollbar, long copy must overflow and scroll.
     checks.fluffScroll = {
-      ok: card2.fluffScroll?.overflowing === true && card1.fluffScroll?.overflowing === false,
-      card1: card1.fluffScroll,
-      card2: card2.fluffScroll,
+      ok:
+        fluffProbe?.fits.overflowing === false &&
+        fluffProbe?.long.overflowing === true &&
+        fluffProbe?.scrolled === true,
+      probe: fluffProbe,
     };
 
+    // Navigation expectations come from the rendered deck order, so card copy
+    // may change freely: start at deck[0], next walks 1 -> 2 -> 0 (wrap),
+    // prev steps back to the last card.
     checks.flip = {
       ok:
-        card1.titleText === 'Thornscape Battlemage' &&
-        card2.titleText === 'Chronicler of the Static' &&
-        card3Title === 'Cartographer of Hidden Roads' &&
-        wrappedTitle === 'Thornscape Battlemage' &&
-        prevTitle === 'Cartographer of Hidden Roads',
+        new Set(deck).size === deck.length &&
+        card1.titleText === deck[0] &&
+        card2.titleText === deck[1] &&
+        card3Title === deck[2] &&
+        wrappedTitle === deck[0] &&
+        prevTitle === deck[2],
+      deck,
       seen: [card1.titleText, card2.titleText, card3Title, wrappedTitle, prevTitle],
     };
 
@@ -259,8 +314,9 @@ async function run() {
       slots: s,
     };
 
-    // Clicking a background card flips to it. Active card is currently
-    // 'Cartographer of Hidden Roads' (index 2): left catcher -> 1, right -> 0.
+    // Clicking a background card flips to it. The active card is the deck's
+    // last one: the left catcher steps back to deck[1], the right catcher
+    // (from the new arrangement) wraps to deck[2].
     await clickPeek(page, SEL.catchLeft, 'left');
     await page.waitForTimeout(550);
     const catchLeftTitle = await active.locator(SEL.title).textContent();
@@ -268,13 +324,12 @@ async function run() {
     await page.waitForTimeout(550);
     const catchRightTitle = await active.locator(SEL.title).textContent();
     checks.stackNav = {
-      ok:
-        catchLeftTitle === 'Chronicler of the Static' &&
-        catchRightTitle === 'Cartographer of Hidden Roads',
+      ok: catchLeftTitle === deck[1] && catchRightTitle === deck[2],
       seen: [catchLeftTitle, catchRightTitle],
     };
 
-    // Touch swipe left -> next card. Active is 'Cartographer of Hidden Roads'.
+    // Touch swipe left -> next card. The active card is the deck's last one,
+    // so the swipe wraps to deck[0].
     await page.evaluate((sel) => {
       const stack = document.querySelector(sel);
       if (!stack) return;
@@ -301,7 +356,7 @@ async function run() {
     await page.waitForTimeout(200);
     const swipedTitle = await active.locator(SEL.title).textContent();
     checks.swipe = {
-      ok: swipedTitle === 'Thornscape Battlemage',
+      ok: swipedTitle === deck[0],
       seen: swipedTitle,
     };
 

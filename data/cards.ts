@@ -1,38 +1,42 @@
 import type { MtgCardData } from '@/components/MtgCard';
 
-// Mock card content — placeholder copy and art, adapt freely.
+// Card copy and art are placeholders — adapt freely before publishing.
+// Art masters live in assets/img/ (PNG, kept out of the export);
+// scripts/prepare-art.mjs transcodes them to the /img/*.webp files referenced
+// here, and the build generates the responsive WebP variants (see
+// next.config.mjs).
 export const mockCards: MtgCardData[] = [
   {
-    title: 'Thornscape Battlemage',
+    title: 'AI Software Engineer',
     image: {
-      src: '/img/profile.webp',
-      alt: 'Placeholder art for Thornscape Battlemage',
+      src: '/img/aidlc.webp',
+      alt: 'An artificer in a dark suit tuning a small robot with a glowing tool, surrounded by monitors full of code',
     },
-    typeLine: 'Creature — Elf Wizard',
+    typeLine: 'Creature — Artificer',
     fluffText:
-      '“The forest remembers every axe, and settles every debt in its own time.”',
-    accent: '#2f6b43',
-  },
-  {
-    title: 'Chronicler of the Static',
-    image: {
-      src: '/img/profile.webp',
-      alt: 'Placeholder art for Chronicler of the Static',
-    },
-    typeLine: 'Legendary Creature — Human Artificer',
-    fluffText:
-      '“Every system tells a story if you know where to listen. The logs remember what the engineers forget, the metrics betray what the dashboards hide, and somewhere between the alerts a pattern is waiting to be found. I have spent a lifetime collecting these stories — from mainframes older than the guilds, from networks that span oceans, from machines that dream in ones and zeroes. Write your code as if you must explain it at three in the morning, because one day you will. And when the outage finally ends, and the graphs return to their quiet hum, remember that the calm is not the absence of problems — it is the presence of someone else’s careful work.\n\nThere is no such thing as a small change. Every commit is a stone dropped into still water, and the ripples travel further than the mason imagines. I have watched empires of software fall to a single misplaced semicolon, and I have watched humble patches quietly hold a decade of storms at bay. Measure twice, ship once, and never trust a green dashboard you have not personally offended.\n\nWhen you find a road that should not exist — a shortcut through the architecture, a door no one remembers building — mark it on your map, but walk it again in winter before you teach it to the apprentices. Code outlives the coder. That is either a comfort or a warning, depending on the morning.”',
+      '“Any sufficiently refined craft is indistinguishable from magic. Any sufficiently documented magic is merely good engineering.”',
     accent: '#2f4d8a',
   },
   {
-    title: 'Cartographer of Hidden Roads',
+    title: 'Big Game Hunter',
     image: {
-      src: '/img/profile.webp',
-      alt: 'Placeholder art for Cartographer of Hidden Roads',
+      src: '/img/irl.webp',
+      alt: 'An archer in studded leather drawing an ornate black-and-gold bow in a misty ruin',
     },
-    typeLine: 'Creature — Human Scout',
+    typeLine: 'Sorcery',
     fluffText:
-      '“Give me a blank map and a bad idea, and I will show you a road that should not exist.”',
-    accent: '#8a5a2f',
+      '“The mightiest beasts fall to the steadiest hands — and the best weekends are the ones nobody hears about.”',
+    accent: '#8a2f2f',
+  },
+  {
+    title: 'Surveilled Lands',
+    image: {
+      src: '/img/gis.webp',
+      alt: 'A cartographer kneeling in a ruined hall, inking a map by shafts of sunlight',
+    },
+    typeLine: 'Enchantment',
+    fluffText:
+      '“Every path she walks enters the commons: free as the land it crosses, remembered long after her footsteps fade.”',
+    accent: '#2f6b43',
   },
 ];
