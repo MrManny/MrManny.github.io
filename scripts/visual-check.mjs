@@ -8,10 +8,13 @@
  *   - art window keeps its 15:11 ratio
  *   - panels do not overlap and stay inside the card
  *   - text stays readable (>= threshold px)
+ *   - type line and description use the same font size as the title
  *   - fluff text scrolls when it overflows (and does not when it fits)
  *   - flip buttons step through cards and wrap around
  *   - background cards sit at the mirrored slant/scale and are clickable
  *   - a touch swipe flips to the next card
+ *   - in print, the deck becomes a grid of exact trading-card-sized panels
+ *     (63.5mm x 88.9mm) without navigation or backdrops
  *
  * Usage: node scripts/visual-check.mjs   (exit 1 when any check fails)
  */
@@ -47,13 +50,15 @@ const SEL = {
   typeBar: '[class$="__typeBar"]',
   typeLine: '[class$="__typeLine"]',
   fluff: '[class$="__fluff"]',
+  description: '[class$="__description"]',
   fluffText: '[class$="__fluffText"]',
+  layer: '[class$="__layer"]',
   bar: '[class$="__bar"]',
   flipNext: '[class$="__flip"][aria-label="Next card"]',
   flipPrev: '[class$="__flip"][aria-label="Previous card"]',
 };
 
-const MIN_FONT = { title: 14, type: 12, fluff: 12 };
+const MIN_FONT = { title: 14, type: 14, description: 14, fluff: 12 };
 const CARD_RATIO = 2.5 / 3.5; // width / height
 const ART_RATIO = 15 / 11; // width / height
 
@@ -132,6 +137,7 @@ async function measure(page) {
       fonts: {
         title: font(sel.title),
         type: font(sel.typeLine),
+        description: font(sel.description),
         fluff: font(sel.fluffText),
       },
       fluffScroll: fluff
@@ -246,11 +252,17 @@ async function run() {
     };
 
     const fonts = card1.fonts;
+    // The type line and the description render at the title's size.
+    const sameSize = (a, b) =>
+      typeof a === 'number' && typeof b === 'number' && Math.abs(a - b) < 0.05;
     checks.fonts = {
       ok:
         fonts.title >= MIN_FONT.title &&
         fonts.type >= MIN_FONT.type &&
-        fonts.fluff >= MIN_FONT.fluff,
+        fonts.description >= MIN_FONT.description &&
+        fonts.fluff >= MIN_FONT.fluff &&
+        sameSize(fonts.type, fonts.title) &&
+        sameSize(fonts.description, fonts.title),
       value: fonts,
       min: MIN_FONT,
     };
@@ -383,6 +395,92 @@ async function run() {
 
     await context.close();
   }
+
+  // --- print pass: the deck prints as real trading cards ---
+  // Print layout is sized in mm; A4 portrait minus the 5mm @page margins is
+  // 200mm wide, so the auto-fill grid holds three 63.5mm cards per row.
+  const MM = 96 / 25.4;
+  const printContext = await browser.newContext({
+    viewport: { width: Math.round(200 * MM), height: Math.round(287 * MM) },
+  });
+  const printPage = await printContext.newPage();
+  await printPage.goto(BASE_URL, { waitUntil: 'networkidle' });
+  await printPage.emulateMedia({ media: 'print' });
+  await printPage.evaluate(() => document.fonts.ready);
+  const printInfo = await printPage.evaluate((sel) => {
+    const boxes = [...document.querySelectorAll(sel.card)].map((node) => {
+      const r = node.getBoundingClientRect();
+      return {
+        x: +r.x.toFixed(1),
+        y: +r.y.toFixed(1),
+        w: +r.width.toFixed(1),
+        h: +r.height.toFixed(1),
+      };
+    });
+    const shown = (node) => {
+      const s = getComputedStyle(node);
+      return s.display !== 'none' && s.visibility !== 'hidden';
+    };
+    const bar = document.querySelector(sel.bar);
+    return {
+      boxes,
+      barShown: !!bar && shown(bar),
+      layersShown: [...document.querySelectorAll(sel.layer)].some(shown),
+    };
+  }, SEL);
+  await printPage.screenshot({
+    path: path.join(OUT_DIR, 'print.png'),
+    fullPage: true,
+  });
+
+  const CARD_W = 63.5 * MM;
+  const CARD_H = 88.9 * MM;
+  const printRows = new Set(printInfo.boxes.map((b) => Math.round(b.y)));
+  const printCols = new Set(printInfo.boxes.map((b) => Math.round(b.x)));
+  const printCollisions = [];
+  for (let i = 0; i < printInfo.boxes.length; i += 1) {
+    for (let j = i + 1; j < printInfo.boxes.length; j += 1) {
+      if (overlaps(printInfo.boxes[i], printInfo.boxes[j])) {
+        printCollisions.push(`${i}~${j}`);
+      }
+    }
+  }
+  results.push({
+    viewport: 'print-a4',
+    cardBox: {
+      w: printInfo.boxes[0]?.w ?? null,
+      h: printInfo.boxes[0]?.h ?? null,
+    },
+    checks: {
+      printSize: {
+        ok:
+          printInfo.boxes.length > 0 &&
+          printInfo.boxes.every(
+            (b) => Math.abs(b.w - CARD_W) <= 0.5 && Math.abs(b.h - CARD_H) <= 0.5
+          ),
+        value: printInfo.boxes.map((b) => `${b.w}x${b.h}`),
+        expected: `${+CARD_W.toFixed(1)}x${+CARD_H.toFixed(1)}`,
+      },
+      printGrid: {
+        ok:
+          printInfo.boxes.length > 0 &&
+          printCols.size === 3 &&
+          printRows.size === Math.ceil(printInfo.boxes.length / 3) &&
+          printCollisions.length === 0,
+        rows: printRows.size,
+        cols: printCols.size,
+        cards: printInfo.boxes.length,
+        collisions: printCollisions,
+      },
+      printChrome: {
+        ok: !printInfo.barShown && !printInfo.layersShown,
+        barShown: printInfo.barShown,
+        layersShown: printInfo.layersShown,
+      },
+    },
+    screenshots: ['print.png'],
+  });
+  await printContext.close();
 
   await browser.close();
 

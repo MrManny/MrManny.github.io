@@ -94,3 +94,39 @@
     transition: none;
   }
 }
+
+/* Print: the fan becomes a plain grid of every card in the deck, each an
+   exact trading card (63.5mm x 88.9mm). A4 portrait minus the 5mm @page
+   margins (globals.css) fits three of them per row. */
+@media print {
+  .stack {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 63.5mm);
+    gap: 3mm;
+    justify-content: center;
+    /* 100%, not auto: an auto inline size leaves the track count indefinite
+       and repeat(auto-fill) collapses to a single column. */
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: auto;
+  }
+
+  .slot {
+    position: static;
+    width: 63.5mm;
+    height: 88.9mm;
+    transition: none;
+    transform: none;
+    z-index: auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    break-inside: avoid;
+  }
+
+  /* The transparent "jump to card" catcher is screen-only. */
+  .catch {
+    display: none;
+  }
+}

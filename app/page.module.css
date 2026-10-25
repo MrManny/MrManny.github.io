@@ -11,3 +11,17 @@
   overflow: hidden;
   background: #000;
 }
+
+/* Print: the stage is just the page the card grid flows on (see
+   MtgCardStack.module.css). Size containment is dropped along with the
+   fixed viewport height so the grid can grow across pages. */
+@media print {
+  .stage {
+    container-type: normal;
+    display: block;
+    height: auto;
+    padding: 0;
+    overflow: visible;
+    background: none;
+  }
+}

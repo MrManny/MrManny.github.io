@@ -17,3 +17,17 @@ body {
   color: #f2eddf;
   font-family: var(--font-neuton), 'Neuton', Georgia, 'Times New Roman', serif;
 }
+
+/* Print: trading cards on A4 portrait, 5mm margins so three 63.5mm cards
+   fit side by side. */
+@page {
+  size: A4 portrait;
+  margin: 5mm;
+}
+
+@media print {
+  html,
+  body {
+    background: none;
+  }
+}

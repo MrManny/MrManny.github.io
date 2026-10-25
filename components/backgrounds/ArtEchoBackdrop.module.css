@@ -38,3 +38,10 @@
     transition: none;
   }
 }
+
+/* Purely decorative — never printed. */
+@media print {
+  .layer {
+    display: none;
+  }
+}

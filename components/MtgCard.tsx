@@ -11,8 +11,10 @@ const ART_SIZES = 'min(86vw, 64vh)';
 
 export type MtgCardData = {
   title: string;
-  image: { src: string; alt: string };
+  // Art is purely decorative, so no alt text is carried or rendered.
+  image: { src: string };
   typeLine: string;
+  description: string;
   fluffText: string;
   accent?: string;
 };
@@ -26,6 +28,7 @@ export default function MtgCard({
   title,
   image,
   typeLine,
+  description,
   fluffText,
   accent,
   onPrev,
@@ -45,7 +48,7 @@ export default function MtgCard({
           <Image
             className={styles.art}
             src={image.src}
-            alt={image.alt}
+            alt=""
             fill
             sizes={ART_SIZES}
             loading="eager"
@@ -57,6 +60,7 @@ export default function MtgCard({
         </div>
 
         <section className={styles.fluff}>
+          <p className={styles.description}>{description}</p>
           <p className={styles.fluffText}>{fluffText}</p>
         </section>
 
