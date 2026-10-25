@@ -2,3 +2,10 @@
 node_modules/
 .next/
 out/
+artifacts/
+
+# Generated from the PNG masters in assets/img/ at build time
+# (scripts/prepare-art.mjs + next-image-export-optimizer) — never committed.
+/public/img/*.webp
+/public/img/nextImageExportOptimizer/
+/public/img/next-image-export-optimizer-hashes.json

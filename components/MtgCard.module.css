@@ -1,0 +1,361 @@
+/* Generic Magic: the Gathering-style card.
+   The card keeps the outer aspect ratio of a real card (2.5 : 3.5) and is
+   itself a size container, so every internal metric below is expressed in
+   `cqw` (percent of card width): the rounded composition scales perfectly
+   at any screen size, in either orientation. Font sizes and key paddings
+   additionally carry px floors (max()) so the card stays readable on small
+   screens instead of shrinking text into illegibility. */
+
+.card {
+  --card-accent: #2f6b43;
+  /* Engraved frame ink, as RGB triplets so any alpha can be derived from
+     them. Bone cream with a dark lip on the dark accents; mirrored to dark
+     ink with a light lip on light (off-white) frames — all three are
+     overridden from MtgCard.tsx based on the accent's luminance. */
+  --card-ink-rgb: 242, 236, 219;
+  --card-ink-lip-rgb: 0, 0, 0;
+  --card-ink-bright: #fffdf6;
+
+  container-type: size;
+  width: min(100%, calc(100cqh * 2.5 / 3.5));
+  min-width: 300px;
+  aspect-ratio: 2.5 / 3.5;
+}
+
+/* Outer frame: rounded band around the inner panels; color comes from the
+   card data via --card-accent. */
+.frame {
+  --panel-bg: #f2ecdb;
+  --panel-text: #1b1610;
+  --panel-edge: #16120c;
+  --panel-border: max(0.4cqw, 1px);
+  /* Header, type line and description share one size so the card's
+     headline text stays uniform. */
+  --font-head: max(4.2cqw, 15px);
+
+  display: grid;
+  grid-template-areas:
+    'title'
+    'image'
+    'type'
+    'fluff'
+    'bar';
+  /* minmax(0, 1fr) lets the fluff track shrink and scroll instead of
+     growing with its content and pushing the bar out of the card. */
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  gap: max(1.9cqw, 6px);
+  width: 100%;
+  height: 100%;
+  padding: max(4.3cqw, 12px);
+  border-radius: 3.5cqw;
+  /* Subtle top-to-bottom gradient: accent at the top, a slightly darker
+     accent at the bottom. A transparent-to-black overlay over the flat
+     accent derives the darker end automatically and renders identically in
+     every browser (no color-mix() support needed). Tweak the end alpha to
+     make the ramp stronger or weaker. */
+  background-color: var(--card-accent);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.16) 100%
+  );
+  /* Drop shadow: the dark rim plus a subtle lift, tuned per slot through
+     --card-lift. The deck gives the front card the full whisper of shadow
+     (so it reads as floating above its neighbours) and flattens the
+     background cards behind it — see MtgCardStack.module.css. */
+  box-shadow:
+    0 0 0 0.35cqw rgba(0, 0, 0, 0.75),
+    var(
+      --card-lift,
+      0 0.9cqw 2cqw rgba(0, 0, 0, 0.76),
+      0 2.4cqw 5cqw rgba(0, 0, 0, 0.44)
+    );
+  transition: box-shadow 320ms ease;
+}
+
+/* Title panel */
+.titleBar {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  padding: max(1.4cqw, 6px) max(2.2cqw, 9px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+}
+
+.title {
+  overflow-wrap: anywhere;
+  color: var(--panel-text);
+  font-size: var(--font-head);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* Art window: 15:11, image stretches to cover the frame */
+.artWindow {
+  grid-area: image;
+  position: relative;
+  aspect-ratio: 15 / 11;
+  overflow: hidden;
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-edge);
+}
+
+.art {
+  object-fit: cover;
+}
+
+/* Type line panel */
+.typeBar {
+  grid-area: type;
+  display: flex;
+  align-items: center;
+  padding: max(1.2cqw, 5px) max(2.2cqw, 9px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+}
+
+.typeLine {
+  color: var(--panel-text);
+  font-size: var(--font-head);
+  line-height: 1.2;
+}
+
+/* Text panel: plain description first, then the italic fluff text below.
+   The panel takes the leftover height and scrolls when it overflows. */
+.fluff {
+  grid-area: fluff;
+  min-height: 0;
+  overflow-y: auto;
+  padding: max(2cqw, 8px) max(2.4cqw, 10px);
+  border: var(--panel-border) solid var(--panel-edge);
+  border-radius: 1.7cqw;
+  background: var(--panel-bg);
+  scrollbar-color: rgba(27, 22, 16, 0.4) transparent;
+  scrollbar-width: thin;
+}
+
+.description {
+  margin-bottom: max(2cqw, 8px);
+  color: var(--panel-text);
+  font-size: var(--font-head);
+  line-height: 1.25;
+  white-space: pre-line;
+}
+
+/* Cards without fluff text: no trailing gap below the description. */
+.description:last-child {
+  margin-bottom: 0;
+}
+
+/* Hyperlinks woven into the description (the contact card): deep blue and
+   underlined so they read as links at a glance on the cream panel. */
+.description a {
+  color: #20458c;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.description a:hover {
+  color: #16336b;
+}
+
+.description a:focus-visible {
+  outline: max(0.35cqw, 2px) solid #20458c;
+  outline-offset: max(0.2cqw, 2px);
+}
+
+.fluffText {
+  color: var(--panel-text);
+  font-size: max(3cqw, 12px);
+  font-style: italic;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.fluff::-webkit-scrollbar {
+  width: max(0.9cqw, 5px);
+}
+
+.fluff::-webkit-scrollbar-thumb {
+  border-radius: 1cqw;
+  background: rgba(27, 22, 16, 0.4);
+}
+
+/* Flip bar: two engraved chevrons with the collector line between them,
+   echoing the bottom strip of a real Magic card (collector number, rarity
+   mark, artist rule). Every mark here is carved into the accent frame in
+   bone ink — cream strokes with a 1px dark lip below (light comes from
+   above) — so the controls read as ornament pressed into the frame rather
+   than buttons pasted onto it. */
+.bar {
+  grid-area: bar;
+  display: flex;
+  align-items: center;
+  gap: max(1.6cqw, 6px);
+}
+
+.flip {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: max(9cqw, 40px);
+  height: max(7.5cqw, 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 1cqw;
+  background: transparent;
+  color: rgba(var(--card-ink-rgb), 0.95);
+  cursor: pointer;
+  transition:
+    color 140ms ease,
+    transform 140ms ease,
+    filter 140ms ease;
+}
+
+/* Invisible hit padding: the drawn chevron stays delicate while the button
+   keeps a >=44px target in both directions. */
+.flip::before {
+  content: '';
+  position: absolute;
+  inset: min(-1.5cqw, -7px);
+}
+
+.chevron {
+  width: max(5.6cqw, 22px);
+  height: auto;
+  filter: drop-shadow(0 1px 0 rgba(var(--card-ink-lip-rgb), 0.55));
+}
+
+/* The hover response replaces the button box as the "this is interactive"
+   signal: the mark brightens, its engraving lifts (the dark lip grows), and
+   it steps in its own direction. */
+.flip:hover:not(:disabled) {
+  color: var(--card-ink-bright);
+}
+
+.flip[data-flip='prev']:hover:not(:disabled) {
+  transform: translateX(-2px);
+}
+
+.flip[data-flip='next']:hover:not(:disabled) {
+  transform: translateX(2px);
+}
+
+.flip:hover:not(:disabled) .chevron {
+  filter:
+    drop-shadow(0 2px 0 rgba(var(--card-ink-lip-rgb), 0.6))
+    drop-shadow(0 0 6px rgba(var(--card-ink-rgb), 0.35));
+}
+
+/* Pressing flattens the lip and sinks the mark into the frame. */
+.flip:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.flip:active:not(:disabled) .chevron {
+  filter: drop-shadow(0 0 0 rgba(var(--card-ink-lip-rgb), 0.55));
+}
+
+.flip:focus-visible {
+  outline: max(0.35cqw, 2px) solid rgb(var(--card-ink-rgb));
+  outline-offset: max(0.2cqw, 2px);
+}
+
+.flip:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* Collector line: card number, then a hairline rule that runs on to the
+   next chevron — the rule is what keeps the number reading as an info strip
+   instead of a label for the‹ button. */
+.collector {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: max(1.2cqw, 5px);
+  min-width: 0;
+  padding-left: max(1cqw, 4px);
+}
+
+.counter {
+  color: rgba(var(--card-ink-rgb), 0.95);
+  font-size: max(2.9cqw, 11px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 0 rgba(var(--card-ink-lip-rgb), 0.55);
+  white-space: nowrap;
+}
+
+.leader {
+  flex: 1;
+  min-width: 2cqw;
+  height: max(0.3cqw, 1.5px);
+  border-radius: 1cqw;
+  background: rgba(var(--card-ink-rgb), 0.28);
+  box-shadow: 0 1px 0 rgba(var(--card-ink-lip-rgb), 0.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame {
+    transition: none;
+  }
+
+  .flip {
+    transition: none;
+  }
+}
+
+/* Print: the card becomes a real trading card (63.5mm x 88.9mm). The
+   small-screen px floors give way to the pure container-proportional metrics,
+   so the printed card looks exactly like the screen card scaled down. */
+@media print {
+  .card {
+    width: 63.5mm;
+    height: 88.9mm;
+    min-width: 0;
+    /* Keep the card's colors even when the print dialog has background
+       graphics switched off. */
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .frame {
+    --font-head: 4.2cqw;
+    --panel-border: 0.4cqw;
+    gap: 1.9cqw;
+    padding: 4.3cqw;
+  }
+
+  .titleBar {
+    padding: 1.4cqw 2.2cqw;
+  }
+
+  .typeBar {
+    padding: 1.2cqw 2.2cqw;
+  }
+
+  .fluff {
+    padding: 2cqw 2.4cqw;
+  }
+
+  .description {
+    margin-bottom: 2cqw;
+  }
+
+  .fluffText {
+    font-size: 3cqw;
+  }
+
+  /* The flip/navigation bar is screen-only. */
+  .bar {
+    display: none;
+  }
+}

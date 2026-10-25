@@ -1,0 +1,47 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Oversized and scaled so the blur never shows a hard image edge. */
+.echo {
+  position: absolute;
+  inset: -15%;
+  width: 130%;
+  height: 130%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.15);
+  filter: blur(70px) saturate(1.25) brightness(0.5);
+  transition: opacity 900ms ease;
+}
+
+.echoActive {
+  opacity: 1;
+}
+
+/* Fine monochrome grain (inline SVG noise), just enough to give the
+   backdrop some tooth. */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .echo {
+    transition: none;
+  }
+}
+
+/* Purely decorative — never printed. */
+@media print {
+  .layer {
+    display: none;
+  }
+}

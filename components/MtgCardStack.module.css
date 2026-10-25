@@ -1,0 +1,183 @@
+/* Deck of Magic-style cards: the active card in front, its previous/next
+   neighbours fanned out directly behind it. The stack is the same 2.5:3.5
+   box as a single card; every card sits in an absolutely positioned slot
+   whose transform defines its place in the fan. Transform transitions make
+   flipping animate. */
+
+.stack {
+  position: relative;
+  width: min(100%, calc(100cqh * 2.5 / 3.5));
+  min-width: 300px;
+  aspect-ratio: 2.5 / 3.5;
+  /* Vertical drags scroll the fluff panel; horizontal drags flip (see the
+     pointer handlers in MtgCardStack.tsx). */
+  touch-action: pan-y;
+}
+
+.slot {
+  position: absolute;
+  inset: 0;
+  transition:
+    transform 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 350ms ease;
+}
+
+/* Active card: unchanged, front and center. */
+.slotActive {
+  z-index: 3;
+  transform: none;
+}
+
+/* Neighbours: 92% scale, mirrored 1.5deg slant, peeking out at the sides.
+   They sit behind the front card and stay nearly flat (--card-lift), so the
+   front card's drop shadow is what visibly separates the layers. */
+.slotLeft {
+  --card-lift: 0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.44);
+  z-index: 1;
+  transform: translateX(-9%) rotate(-1.5deg) scale(0.92);
+}
+
+.slotRight {
+  --card-lift: 0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.44);
+  z-index: 1;
+  transform: translateX(9%) rotate(1.5deg) scale(0.92);
+}
+
+/* Wide screens have empty space beside the deck, so the neighbours stick out
+   further and show more of themselves. The gate needs both a wide viewport
+   and a landscape-ish aspect ratio: at portrait shapes the stack is
+   width-limited and a wider fan would run into the stage's overflow: hidden. */
+@media (min-width: 900px) and (min-aspect-ratio: 7 / 6) {
+  .slotLeft {
+    transform: translateX(-20%) rotate(-1.5deg) scale(0.92);
+  }
+
+  .slotRight {
+    transform: translateX(20%) rotate(1.5deg) scale(0.92);
+  }
+}
+
+/* Cards beyond the two neighbours stay mounted (so they animate in when
+   they become neighbours) but are invisible and inert. */
+.slotHidden {
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.92);
+}
+
+.holder {
+  width: 100%;
+  height: 100%;
+}
+
+/* Transparent hit area over a background card: one big "go to this card"
+   button. */
+.catch {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.catch:focus-visible {
+  outline: 2px solid #f2ecdb;
+  outline-offset: -6px;
+}
+
+/* Hovering (or keyboard-focusing) a flip chevron fans its neighbour further
+   out and tilts it: the preview shows where pressing will go, which is what
+   makes the container-less chevrons read as interactive. The selectors reach
+   the chevron buttons inside MtgCard through their data-flip attributes.
+   The peeking neighbour is itself a big "go to this card" button (the .catch
+   below), so hovering or focusing it pops it out the same way. */
+@media (prefers-reduced-motion: no-preference) {
+  .stack:has([data-flip='prev']:hover) .slotLeft,
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft,
+  .slotLeft:hover,
+  .slotLeft:focus-within {
+    transform: translateX(-13%) rotate(-2.4deg) scale(0.93);
+    transition-duration: 600ms, 600ms;
+  }
+
+  .stack:has([data-flip='next']:hover) .slotRight,
+  .stack:has([data-flip='next']:focus-visible) .slotRight,
+  .slotRight:hover,
+  .slotRight:focus-within {
+    transform: translateX(13%) rotate(2.4deg) scale(0.93);
+    transition-duration: 600ms, 600ms;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 900px) and (min-aspect-ratio: 7 / 6) {
+  .stack:has([data-flip='prev']:hover) .slotLeft,
+  .stack:has([data-flip='prev']:focus-visible) .slotLeft,
+  .slotLeft:hover,
+  .slotLeft:focus-within {
+    transform: translateX(-25%) rotate(-2.4deg) scale(0.93);
+  }
+
+  .stack:has([data-flip='next']:hover) .slotRight,
+  .stack:has([data-flip='next']:focus-visible) .slotRight,
+  .slotRight:hover,
+  .slotRight:focus-within {
+    transform: translateX(25%) rotate(2.4deg) scale(0.93);
+  }
+}
+
+/* Screen-reader announcement of the deck position ("Card 1 of 3 — …");
+   the visible collector line on the card is decorative. */
+.status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot {
+    transition: none;
+  }
+}
+
+/* Print: the fan becomes a plain grid of every card in the deck, each an
+   exact trading card (63.5mm x 88.9mm). A4 portrait minus the 5mm @page
+   margins (globals.css) fits three of them per row. */
+@media print {
+  .stack {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 63.5mm);
+    gap: 3mm;
+    justify-content: center;
+    /* 100%, not auto: an auto inline size leaves the track count indefinite
+       and repeat(auto-fill) collapses to a single column. */
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: auto;
+  }
+
+  .slot {
+    position: static;
+    width: 63.5mm;
+    height: 88.9mm;
+    transition: none;
+    transform: none;
+    z-index: auto;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    break-inside: avoid;
+  }
+
+  /* The transparent "jump to card" catcher is screen-only. */
+  .catch {
+    display: none;
+  }
+}
