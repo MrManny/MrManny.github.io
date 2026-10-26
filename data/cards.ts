@@ -3,8 +3,8 @@ import type { MtgCardData } from '@/components/MtgCard';
 // Card copy and art are placeholders — adapt freely before publishing.
 // Art masters live in assets/img/ (PNG, kept out of the export);
 // scripts/prepare-art.mjs transcodes them to the /img/*.webp files referenced
-// here, and the build generates the responsive WebP variants (see
-// next.config.mjs).
+// here (plus the small /echo/ stand-ins the blurred backdrop uses), and
+// the build generates the responsive WebP variants (see next.config.mjs).
 export const mockCards: MtgCardData[] = [
   {
     title: 'AI Software Engineer',

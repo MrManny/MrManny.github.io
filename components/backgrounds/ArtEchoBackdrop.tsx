@@ -17,7 +17,7 @@ export default function ArtEchoBackdrop({ cards, index }: ArtEchoBackdropProps) 
       {cards.map((card, i) => (
         <img
           key={card.image.src}
-          src={card.image.src}
+          src={echoSrc(card.image.src)}
           alt=""
           className={`${styles.echo} ${i === index ? styles.echoActive : ''}`}
         />
@@ -25,4 +25,15 @@ export default function ArtEchoBackdrop({ cards, index }: ArtEchoBackdropProps) 
       <div className={styles.grain} />
     </div>
   );
+}
+
+/**
+ * The backdrop is blurred past recognition (blur(70px), see
+ * ArtEchoBackdrop.module.css), so loading the full-resolution masters here
+ * would burn ~250 KB per card on detail nobody can see. Instead pick up the
+ * small stand-in that scripts/prepare-art.mjs writes to public/echo/
+ * alongside each /img/<name>.webp master.
+ */
+function echoSrc(masterSrc: string): string {
+  return masterSrc.replace(/^\/img\//, '/echo/');
 }

@@ -6,7 +6,9 @@ artifacts/
 
 # Generated from the PNG masters in assets/img/ at build time
 # (scripts/prepare-art.mjs + next-image-export-optimizer) — never committed.
+# /public/echo/ holds the small blurred-backdrop stand-ins.
 /public/img/*.webp
+/public/echo/
 /public/img/nextImageExportOptimizer/
 /public/img/next-image-export-optimizer-hashes.json
 

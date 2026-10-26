@@ -8,7 +8,12 @@
  *
  * The responsive WebP variants (per-width srcset files) are generated at build
  * time by next-image-export-optimizer from these WebP masters — see
- * next.config.mjs. This script only does the master format conversion.
+ * next.config.mjs. On top of the masters, this script writes one small
+ * "echo" variant per art piece to public/echo/: the heavily blurred backdrop
+ * (components/backgrounds/ArtEchoBackdrop.tsx) pulls those instead of the
+ * masters, so it never ships ~250 KB of detail that blur(70px) throws away.
+ * (They deliberately live outside public/img/, whose whole tree the export
+ * optimizer would ladder into unused per-width variants.)
  *
  * Workflow: drop new art into `assets/img/<name>.png`, then run
  * `npm run dev` or `npm run build`.
@@ -20,10 +25,17 @@ import sharp from 'sharp';
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SRC_DIR = path.join(ROOT, 'assets', 'img');
 const OUT_DIR = path.join(ROOT, 'public', 'img');
+const ECHO_DIR = path.join(ROOT, 'public', 'echo');
 const SOURCE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp']);
+
+// Wide enough to survive the backdrop's scale-up without banding under the
+// blur; the CSS filter destroys any detail beyond this anyway.
+const ECHO_WIDTH = 640;
+const ECHO_QUALITY = 70;
 
 await mkdir(SRC_DIR, { recursive: true });
 await mkdir(OUT_DIR, { recursive: true });
+await mkdir(ECHO_DIR, { recursive: true });
 
 const sources = (await readdir(SRC_DIR, { withFileTypes: true }))
   .filter(
@@ -52,11 +64,15 @@ for (const file of sources) {
   } else {
     await sharp(from).webp({ quality: 85 }).toFile(to);
   }
-  console.log(`prepare-art: ${file} -> public/img/${target}`);
+  await sharp(from)
+    .resize({ width: ECHO_WIDTH, withoutEnlargement: true })
+    .webp({ quality: ECHO_QUALITY })
+    .toFile(path.join(ECHO_DIR, target));
+  console.log(`prepare-art: ${file} -> public/img/${target} + public/echo/${target}`);
 }
 
 // public/img is derived output: drop masters left over from removed sources so
-// stale art cannot leak into the export.
+// stale art cannot leak into the export (same for their echo variants).
 for (const entry of await readdir(OUT_DIR, { withFileTypes: true })) {
   if (
     entry.isFile() &&
@@ -65,5 +81,15 @@ for (const entry of await readdir(OUT_DIR, { withFileTypes: true })) {
   ) {
     await rm(path.join(OUT_DIR, entry.name));
     console.log(`prepare-art: removed stale public/img/${entry.name}`);
+  }
+}
+for (const entry of await readdir(ECHO_DIR, { withFileTypes: true })) {
+  if (
+    entry.isFile() &&
+    entry.name.toLowerCase().endsWith('.webp') &&
+    !expected.has(entry.name.toLowerCase())
+  ) {
+    await rm(path.join(ECHO_DIR, entry.name));
+    console.log(`prepare-art: removed stale public/echo/${entry.name}`);
   }
 }
