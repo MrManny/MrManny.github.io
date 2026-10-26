@@ -10,9 +10,11 @@ export const mockCards: MtgCardData[] = [
     title: 'AI Software Engineer',
     image: {
       src: '/img/aidlc.webp',
+      alt: 'Painterly fantasy illustration: a goggled artificer repairing a robot head with a glowing tool, surrounded by monitors full of code',
     },
     typeLine: 'Legendary Creature — Artificer Wizard',
-    description: 'Research and Software Engineer working to solve modern problems with modern solutions.',
+    description:
+      'Research and software engineer working on AI-assisted software engineering — solving modern problems with modern solutions.',
     fluffText:
       '“Any sufficiently refined craft is indistinguishable from magic. Any sufficiently documented magic is merely good engineering.”',
     accent: '#315568',
@@ -27,6 +29,7 @@ export const mockCards: MtgCardData[] = [
     title: 'Natural 20',
     image: {
       src: '/img/irl.webp',
+      alt: 'Painterly fantasy illustration: a cloaked archer drawing a black-and-red bow while standing on a giant game controller above lava',
     },
     typeLine: 'Instant',
     description: 'Board/card/video game aficionado, aspiring archer, and builder with bravado.',
@@ -44,6 +47,7 @@ export const mockCards: MtgCardData[] = [
     title: 'Every Path Remembered',
     image: {
       src: '/img/gis.webp',
+      alt: 'Painterly fantasy illustration: a hatted explorer drawing on a colourful map beside an alpine lake, a drone flying overhead',
     },
     typeLine: 'Enchantment — Saga',
     description: 'Drone operator and open data contributor, in particular to OpenStreetMap since 2015.',
@@ -61,12 +65,13 @@ export const mockCards: MtgCardData[] = [
     title: 'Speak, Friend, and Enter',
     image: {
       src: '/img/contact.webp',
+      alt: 'Painterly fantasy illustration: a moustached gentleman in an ornate coat phoning from a brass candlestick telephone in a gas-lit hall',
     },
     typeLine: 'Sorcery',
     // The description is the card: modal rules text whose platform names are
     // hyperlinks (rendered with target=_blank by MtgCard).
     description: [
-      'Choose one —\n• Follow his work on ',
+      'Open to AI engineering roles. Choose one —\n• Follow his work on ',
       { text: 'GitHub', href: 'https://github.com/MrManny' },
       ';\n• Connect with him on ',
       { text: 'LinkedIn', href: 'https://www.linkedin.com/in/manuel-w-a54850235' },

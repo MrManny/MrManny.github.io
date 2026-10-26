@@ -15,6 +15,10 @@ export default function Home() {
 
   return (
     <main className={styles.stage}>
+      {/* The stage is a card deck, so it has no visible site heading. This
+          h1 names the person for screen readers and search engines; the card
+          titles below are h2. */}
+      <h1 className="srOnly">Manuel Warum — AI Software Engineer (AIDLC)</h1>
       <ArtEchoBackdrop cards={mockCards} index={index} />
       <MotesBackdrop />
       <MtgCardStack

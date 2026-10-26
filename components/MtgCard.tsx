@@ -11,8 +11,9 @@ const ART_SIZES = 'min(86vw, 64vh, 590px)';
 
 export type MtgCardData = {
   title: string;
-  // Art is purely decorative, so no alt text is carried or rendered.
-  image: { src: string };
+  // Art is scene-flavoured illustration; alt describes the scene without
+  // repeating the card title that sits right above it.
+  image: { src: string; alt: string };
   typeLine: string;
   // Description copy, either plain or with hyperlink segments woven in.
   // Link segments render as anchors that open in a new tab.
@@ -127,14 +128,15 @@ export default function MtgCard({
     >
       <div className={styles.frame}>
         <header className={styles.titleBar}>
-          <h1 className={styles.title}>{title}</h1>
+          {/* h2: the page's h1 names the person (see app/page.tsx). */}
+          <h2 className={styles.title}>{title}</h2>
         </header>
 
         <figure className={styles.artWindow}>
           <Image
             className={styles.art}
             src={image.src}
-            alt=""
+            alt={image.alt}
             fill
             sizes={ART_SIZES}
             loading="eager"

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/prepare-art.mjs && next dev",
-    "build": "node scripts/prepare-art.mjs && next build && next-image-export-optimizer",
-    "art": "node scripts/prepare-art.mjs",
+    "dev": "node scripts/prepare-art.mjs && node scripts/prepare-og.mjs && next dev",
+    "build": "node scripts/prepare-art.mjs && node scripts/prepare-og.mjs && next build && next-image-export-optimizer",
+    "art": "node scripts/prepare-art.mjs && node scripts/prepare-og.mjs",
     "preview": "serve out -l 3001",
     "lint": "next lint"
   },

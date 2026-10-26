@@ -1,18 +1,24 @@
 # Manuel Warum
 
-> IT industry professional working in AI-assisted software engineering (AIDLC).
+> IT professional working in AI-assisted software engineering (AIDLC) — the
+> whole development life cycle with AI assistance, from first prompt to
+> shipped code and beyond. Open to AI engineering roles.
 
-## About
+The site is a one-page profile disguised as a Magic: The Gathering card deck:
+each card is one facet — his engineering work, his hobbies, his open-data
+contributions, and how to reach him. Card-flavoured wording
+("Legendary Creature — Artificer Wizard") is presentation, not job history.
 
-- I work in the IT industry on AI-assisted software engineering — the whole
-	AI development life cycle (AIDLC), from first prompt to shipped code.
-- I follow technological developments closely. Someone has to.
-- I give back to open data, mostly OpenStreetMap.
+## Pages
 
-## Links
+- [Profile, markdown edition](https://mrmanny.github.io/index.md): The complete site as clean prose — career focus, hobbies, OpenStreetMap work, and contact links. Start here.
 
-- Website: https://mrmanny.github.io
-- LinkedIn: https://www.linkedin.com/in/manuel-w-a54850235/
-- GitHub: https://github.com/MrManny
-- OpenStreetMap: https://www.openstreetmap.org/user/MrManny
-- ResearchGate: https://www.researchgate.net/profile/Manuel-Warum
+## Profiles
+
+- [GitHub](https://github.com/MrManny): Source code and open-source contributions.
+- [LinkedIn](https://www.linkedin.com/in/manuel-w-a54850235): Professional profile; the fastest way to reach him about roles.
+- [OpenStreetMap](https://www.openstreetmap.org/user/MrManny): Open-data mapping contributions since 2015.
+
+## Optional
+
+- [ResearchGate](https://www.researchgate.net/profile/Manuel-Warum): Research publications.

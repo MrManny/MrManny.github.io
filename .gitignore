@@ -9,3 +9,6 @@ artifacts/
 /public/img/*.webp
 /public/img/nextImageExportOptimizer/
 /public/img/next-image-export-optimizer-hashes.json
+
+# Generated from assets/ masters at build time (scripts/prepare-og.mjs).
+/public/og-image.png
